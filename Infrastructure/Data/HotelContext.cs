@@ -14,5 +14,10 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<RoomType> RoomTypes { get; set; }
+        public DbSet<RoomBooking> RoomBookings { get; set; }
+        public DbSet<BookingStatus> BookingStatuses { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaymentType> PaymentTypes { get; set; }
     }
 }

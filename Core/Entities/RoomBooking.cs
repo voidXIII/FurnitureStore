@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class RoomBooking
+    public class RoomBooking : BaseEntity
     {
         public int BookingId { get; set; }
         public string CustomerName { get; set; }

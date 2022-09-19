@@ -84,19 +84,24 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("RoomDescription")
+                        .IsRequired()
+                        .HasMaxLength(550)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("RoomMainImageUrl")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("RoomName")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("RoomNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("RoomPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RoomTypeId")
                         .HasColumnType("INTEGER");

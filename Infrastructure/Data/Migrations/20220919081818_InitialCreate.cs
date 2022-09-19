@@ -91,13 +91,13 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     RoomNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomName = table.Column<string>(type: "TEXT", nullable: true),
-                    RoomMainImageUrl = table.Column<string>(type: "TEXT", nullable: true),
-                    RoomPrice = table.Column<decimal>(type: "TEXT", nullable: false),
+                    RoomName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    RoomMainImageUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    RoomPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     BookingStatusId = table.Column<int>(type: "INTEGER", nullable: false),
                     RoomTypeId = table.Column<int>(type: "INTEGER", nullable: false),
                     RoomCapacity = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomDescription = table.Column<string>(type: "TEXT", nullable: true),
+                    RoomDescription = table.Column<string>(type: "TEXT", maxLength: 550, nullable: false),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

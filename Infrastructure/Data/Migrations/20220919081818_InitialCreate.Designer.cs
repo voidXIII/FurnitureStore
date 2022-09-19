@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20220919080802_InitialCreate")]
+    [Migration("20220919081818_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,19 +86,24 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("RoomDescription")
+                        .IsRequired()
+                        .HasMaxLength(550)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("RoomMainImageUrl")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("RoomName")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("RoomNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("RoomPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RoomTypeId")
                         .HasColumnType("INTEGER");

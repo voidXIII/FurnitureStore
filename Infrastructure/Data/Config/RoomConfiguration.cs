@@ -12,7 +12,10 @@ namespace Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Room> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(p => p.RoomName).IsRequired().HasMaxLength(100);
+            builder.Property(p => p.RoomDescription).IsRequired().HasMaxLength(550);
+            builder.Property(p => p.RoomPrice).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.RoomMainImageUrl).IsRequired();
         }
     }
 }

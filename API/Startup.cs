@@ -18,7 +18,7 @@ namespace API
         {
             services.AddScoped<IRoomRepository, RoomRepository>();
             services.AddControllers();
-            services.AddDbContext<HotelContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<HotelContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });

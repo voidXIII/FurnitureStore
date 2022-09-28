@@ -13,9 +13,9 @@ namespace Infrastructure.Data.Migrations
                 name: "BookingStatuses",
                 columns: table => new
                 {
-                    BookingStatusId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    BookingStatusTitle = table.Column<string>(type: "TEXT", nullable: true)
+                    BookingStatusId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookingStatusTitle = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,12 +26,12 @@ namespace Infrastructure.Data.Migrations
                 name: "Payments",
                 columns: table => new
                 {
-                    PaymentId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    BookingId = table.Column<int>(type: "INTEGER", nullable: false),
-                    PaymentTypeId = table.Column<int>(type: "INTEGER", nullable: false),
-                    PaymentAmount = table.Column<decimal>(type: "TEXT", nullable: false),
-                    IsActive = table.Column<bool>(type: "INTEGER", nullable: false)
+                    PaymentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookingId = table.Column<int>(type: "int", nullable: false),
+                    PaymentTypeId = table.Column<int>(type: "int", nullable: false),
+                    PaymentAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,9 +42,9 @@ namespace Infrastructure.Data.Migrations
                 name: "PaymentTypes",
                 columns: table => new
                 {
-                    PaymentTypeId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    PaymentModel = table.Column<int>(type: "INTEGER", nullable: false)
+                    PaymentTypeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentModel = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,16 +55,16 @@ namespace Infrastructure.Data.Migrations
                 name: "RoomBookings",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    BookingId = table.Column<int>(type: "INTEGER", nullable: false),
-                    CustomerName = table.Column<string>(type: "TEXT", nullable: true),
-                    CustomerAdress = table.Column<string>(type: "TEXT", nullable: true),
-                    CheckIn = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    CheckOut = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    AssignRoomId = table.Column<int>(type: "INTEGER", nullable: false),
-                    NumberOfGuests = table.Column<int>(type: "INTEGER", nullable: false),
-                    FinalPrice = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookingId = table.Column<int>(type: "int", nullable: false),
+                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerAdress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CheckIn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CheckOut = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AssignRoomId = table.Column<int>(type: "int", nullable: false),
+                    NumberOfGuests = table.Column<int>(type: "int", nullable: false),
+                    FinalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,9 +75,9 @@ namespace Infrastructure.Data.Migrations
                 name: "RoomTypes",
                 columns: table => new
                 {
-                    RoomTypeId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    RoomTypeName = table.Column<string>(type: "TEXT", nullable: true)
+                    RoomTypeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoomTypeName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -88,17 +88,17 @@ namespace Infrastructure.Data.Migrations
                 name: "Rooms",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    RoomNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    RoomMainImageUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoomNumber = table.Column<int>(type: "int", nullable: false),
+                    RoomName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    RoomMainImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoomPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BookingStatusId = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomTypeId = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomCapacity = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomDescription = table.Column<string>(type: "TEXT", maxLength: 550, nullable: false),
-                    IsActive = table.Column<bool>(type: "INTEGER", nullable: false)
+                    BookingStatusId = table.Column<int>(type: "int", nullable: false),
+                    RoomTypeId = table.Column<int>(type: "int", nullable: false),
+                    RoomCapacity = table.Column<int>(type: "int", nullable: false),
+                    RoomDescription = table.Column<string>(type: "nvarchar(550)", maxLength: 550, nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -10,5 +10,7 @@ namespace Core.Interfaces
     {
         Task<Room> GetRoomByIdAsync(int id);
         Task<IReadOnlyList<Room>> GetRoomsAsync();
+        Task<IReadOnlyList<BookingStatus>> GetBookingStatusesAsync();
+        Task<IReadOnlyList<RoomType>> GetRoomTypesAsync();
     }
 }

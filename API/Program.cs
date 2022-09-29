@@ -16,6 +16,7 @@ namespace API
                 {
                     var context = services.GetRequiredService<HotelContext>();
                     await context.Database.MigrateAsync();
+                    await HotelContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch(Exception ex)
                 {

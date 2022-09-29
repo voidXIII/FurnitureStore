@@ -1,0 +1,14 @@
+[
+ {
+  "RoomTypeName": "Standard"
+ },
+ {
+  "RoomTypeName": "King Size"
+ },
+ {
+  "RoomTypeName": "Family"
+ },
+ {
+  "RoomTypeName": "VIP"
+ }
+]

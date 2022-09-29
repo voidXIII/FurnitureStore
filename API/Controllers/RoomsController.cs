@@ -33,5 +33,17 @@ namespace API.Controllers
         {
             return await _repo.GetRoomByIdAsync(id);
         }
+
+        [HttpGet("bookingstatuses")]
+        public async Task<ActionResult<IReadOnlyList<BookingStatus>>> GetBookingStatuses()
+        {
+            return Ok(await _repo.GetBookingStatusesAsync());
+        }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<IReadOnlyList<RoomType>>> GetRoomTypes()
+        {
+            return Ok(await _repo.GetRoomTypesAsync());
+        }
     }
 }

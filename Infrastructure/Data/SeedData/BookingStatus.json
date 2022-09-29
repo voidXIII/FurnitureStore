@@ -1,0 +1,11 @@
+[
+ {
+  "BookingStatusTitle": "Reserved"
+ },
+ {
+  "BookingStatusTitle": "Free"
+ },
+ {
+  "BookingStatusTitle": "Ocupied"
+ }
+]

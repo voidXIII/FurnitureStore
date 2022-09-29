@@ -9,41 +9,45 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
-{   
+{
     [ApiController]
     [Route("api/[controller]")]
     public class RoomsController : ControllerBase
     {
-        private readonly IRoomRepository _repo;
-        public RoomsController(IRoomRepository repo)
+        private readonly IGenericRepository<Room> _roomRepo;
+        private readonly IGenericRepository<BookingStatus> _bookingStatusRepo;
+        private readonly IGenericRepository<RoomType> _roomTypeRepo;
+        public RoomsController(IGenericRepository<Room> roomRepo, IGenericRepository<BookingStatus> bookingStatusRepo,
+                            IGenericRepository<RoomType> roomTypeRepo)
         {
-            _repo = repo;
-
+            _roomTypeRepo = roomTypeRepo;
+            _bookingStatusRepo = bookingStatusRepo;
+            _roomRepo = roomRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Room>>> GetRooms()
         {
-            var rooms = await _repo.GetRoomsAsync();
+            var rooms = await _roomRepo.ListAllAsync();
             return Ok(rooms);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> GetRoom(int id)
         {
-            return await _repo.GetRoomByIdAsync(id);
+            return await _roomRepo.GetByIdAsync(id);
         }
 
         [HttpGet("bookingstatuses")]
         public async Task<ActionResult<IReadOnlyList<BookingStatus>>> GetBookingStatuses()
         {
-            return Ok(await _repo.GetBookingStatusesAsync());
+            return Ok(await _bookingStatusRepo.ListAllAsync());
         }
 
         [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<RoomType>>> GetRoomTypes()
         {
-            return Ok(await _repo.GetRoomTypesAsync());
+            return Ok(await _roomTypeRepo.ListAllAsync());
         }
     }
 }

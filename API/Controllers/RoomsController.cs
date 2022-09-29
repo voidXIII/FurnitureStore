@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Dtos;
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,16 +28,41 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Room>>> GetRooms()
+        public async Task<ActionResult<List<RoomToReturnDto>>> GetRooms()
         {
-            var rooms = await _roomRepo.ListAllAsync();
-            return Ok(rooms);
+            var spec = new RoomsWithTypesAndBookingStatusesSpecification();
+            var rooms = await _roomRepo.ListAsync(spec);
+            return rooms.Select(room => new RoomToReturnDto 
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                RoomName = room.RoomName,
+                RoomMainImageUrl = room.RoomMainImageUrl,
+                RoomPrice = room.RoomPrice,
+                BookingStatus = room.BookingStatus.BookingStatusTitle,
+                RoomType = room.RoomType.RoomTypeName,
+                RoomCapacity = room.RoomCapacity,
+                RoomDescription = room.RoomDescription,
+            }).ToList();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Room>> GetRoom(int id)
+        public async Task<ActionResult<RoomToReturnDto>> GetRoom(int id)
         {
-            return await _roomRepo.GetByIdAsync(id);
+            var spec = new RoomsWithTypesAndBookingStatusesSpecification(id);
+            var room = await _roomRepo.GetEntityWithSpec(spec);
+            return new RoomToReturnDto
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                RoomName = room.RoomName,
+                RoomMainImageUrl = room.RoomMainImageUrl,
+                RoomPrice = room.RoomPrice,
+                BookingStatus = room.BookingStatus.BookingStatusTitle,
+                RoomType = room.RoomType.RoomTypeName,
+                RoomCapacity = room.RoomCapacity,
+                RoomDescription = room.RoomDescription,
+            };
         }
 
         [HttpGet("bookingstatuses")]

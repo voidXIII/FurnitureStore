@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class RoomType
+    public class RoomType : BaseEntity
     {
-        public int RoomTypeId { get; set; }
         public string RoomTypeName { get; set; }
     }
 }

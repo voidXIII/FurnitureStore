@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class BookingStatus
+    public class BookingStatus : BaseEntity
     {
-        public int BookingStatusId { get; set; }    
         public string BookingStatusTitle { get; set; }
     }
 }

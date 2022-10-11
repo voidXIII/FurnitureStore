@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Dtos;
 using API.Errors;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -52,11 +53,13 @@ namespace API.Services
             await _roomRepo.SaveChangesAsync();
         }
 
-        public async Task<IReadOnlyList<RoomToReturnDto>> GetRoomsAsync()
+        public async Task<Pagination<RoomToReturnDto>> GetRoomsAsync(ParamsSpecification paramsSpec)
         {
-            var spec = new RoomsWithTypesAndBookingStatusesSpecification();
+            var spec = new RoomsWithTypesAndBookingStatusesSpecification(paramsSpec);
             var rooms = await _roomRepo.ListAsync(spec);
-            return _mapper.Map<IReadOnlyList<RoomToReturnDto>>(rooms);
+            var totalCount = await _roomRepo.CountAsync();
+            var dataToReturn = _mapper.Map<IReadOnlyList<RoomToReturnDto>>(rooms);
+            return new Pagination<RoomToReturnDto>(paramsSpec.PageIndex, paramsSpec.PageSize, totalCount, dataToReturn);
         }
 
         public async Task<RoomToReturnDto> GetRoomWithSpecAsync(int id)

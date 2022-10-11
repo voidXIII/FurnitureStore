@@ -22,6 +22,11 @@ namespace Infrastructure.Data
             _context.Set<T>().Add(entity);
         }
 
+        public async Task<int> CountAsync()
+        {
+            return await _context.Set<T>().CountAsync();
+        }
+
         public async Task<T> DeleteAsync(int id)
         {
             var entity = await _context.Set<T>().FindAsync(id);

@@ -26,9 +26,9 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<RoomToReturnDto>>> GetRooms()
+        public async Task<ActionResult<IReadOnlyList<RoomToReturnDto>>> GetRooms([FromQuery] ParamsSpecification paramsSpec)
         {
-            return Ok(await _roomService.GetRoomsAsync());
+            return Ok(await _roomService.GetRoomsAsync(paramsSpec));
         }
 
         [HttpGet("{id}")]

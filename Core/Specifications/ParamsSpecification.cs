@@ -19,5 +19,6 @@ namespace Core.Specifications
         public int? StatusId { get; set; }
         public int? TypeId { get; set; }
         public string Sort { get; set; }
+        public string Search { get; set; }
     }
 }

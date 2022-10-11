@@ -11,6 +11,7 @@ namespace Core.Specifications
     {
         public RoomsWithTypesAndBookingStatusesSpecification(ParamsSpecification paramsSpec)
             : base (x =>
+                (string.IsNullOrEmpty(paramsSpec.Search) || x.RoomName.ToLower().Contains(paramsSpec.Search.ToLower())) &&
                 (!paramsSpec.StatusId.HasValue || x.BookingStatusId == paramsSpec.StatusId) &&  
                 (!paramsSpec.TypeId.HasValue || x.RoomTypeId == paramsSpec.TypeId)        
             )

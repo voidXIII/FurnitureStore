@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Dtos;
+using API.Errors;
+using API.Services;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -13,49 +15,47 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class RoomsController : ControllerBase
+    public class RoomsController : BaseApiController
     {
-        private readonly IGenericRepository<Room> _roomRepo;
-        private readonly IGenericRepository<BookingStatus> _bookingStatusRepo;
-        private readonly IGenericRepository<RoomType> _roomTypeRepo;
-        private readonly IMapper _mapper;
-        public RoomsController(IGenericRepository<Room> roomRepo, IGenericRepository<BookingStatus> bookingStatusRepo,
-                            IGenericRepository<RoomType> roomTypeRepo, IMapper mapper)
+        private readonly IRoomService _roomService;
+        
+        public RoomsController(IRoomService roomService)
         {
-            _mapper = mapper;
-            _roomTypeRepo = roomTypeRepo;
-            _bookingStatusRepo = bookingStatusRepo;
-            _roomRepo = roomRepo;
+            _roomService = roomService;
+
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<RoomToReturnDto>>> GetRooms()
         {
-            var spec = new RoomsWithTypesAndBookingStatusesSpecification();
-            var rooms = await _roomRepo.ListAsync(spec);
-            return Ok(_mapper.Map<IReadOnlyList<Room>,IReadOnlyList<RoomToReturnDto>>(rooms));
+            return Ok(await _roomService.GetRoomsAsync());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<RoomToReturnDto>> GetRoom(int id)
         {
-            var spec = new RoomsWithTypesAndBookingStatusesSpecification(id);
-            var room = await _roomRepo.GetEntityWithSpec(spec);
-            return _mapper.Map<Room, RoomToReturnDto>(room);
+            return Ok(await _roomService.GetRoomWithSpecAsync(id));
         }
 
-        [HttpGet("bookingstatuses")]
-        public async Task<ActionResult<IReadOnlyList<BookingStatus>>> GetBookingStatuses()
+        [HttpPost]
+        public async Task<ActionResult> CreateRoom([FromBody] RoomToCreateDto roomToCreate)
         {
-            return Ok(await _bookingStatusRepo.ListAllAsync());
+            var result = await _roomService.CreateRoomAsync(roomToCreate);
+            return CreatedAtAction(nameof(GetRoom), new { id = result.Id }, result);
         }
 
-        [HttpGet("types")]
-        public async Task<ActionResult<IReadOnlyList<RoomType>>> GetRoomTypes()
+        [HttpDelete]
+        public async Task<ActionResult> DeleteRoom(int id)
         {
-            return Ok(await _roomTypeRepo.ListAllAsync());
+            await _roomService.DeleteRoomAsync(id);
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateRoom(int id, [FromBody] RoomToUpdateDto roomToUpdate)
+        {
+            await _roomService.UpdateRoomAsync(id, roomToUpdate);
+            return Ok(roomToUpdate);
         }
     }
 }

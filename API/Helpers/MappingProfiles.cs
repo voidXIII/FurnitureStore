@@ -16,6 +16,8 @@ namespace API.Helpers
                 .ForMember(d => d.BookingStatus, o => o.MapFrom(s => s.BookingStatus.BookingStatusTitle))
                 .ForMember(d => d.RoomType, o => o.MapFrom(s => s.RoomType.RoomTypeName))
                 .ForMember(d => d.RoomMainImageUrl, o => o.MapFrom<RoomUrlResolver>());
+            CreateMap<RoomToCreateDto, Room>();
+            CreateMap<RoomToUpdateDto, Room>();
         }
     }
 }

@@ -10,6 +10,9 @@ namespace Infrastructure.Data
 {
     public class HotelContext : DbContext
     {
+        public HotelContext()
+        {
+        }
         public HotelContext(DbContextOptions<HotelContext> options) : base(options)
         {
         }

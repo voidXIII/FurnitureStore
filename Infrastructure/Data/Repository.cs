@@ -9,12 +9,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly HotelContext _context;
-        public GenericRepository(HotelContext context)
+        public Repository(HotelContext context)
         {
             _context = context;
+        }
+
+        public void Add(T entity)
+        {
+            _context.Set<T>().Add(entity);
+        }
+
+        public async Task<T> DeleteAsync(int id)
+        {
+            var entity = await _context.Set<T>().FindAsync(id);
+            if(entity == null)
+            {
+                throw new Exception($"Object of type {typeof(T)} with id '{id}' not found");
+            }
+
+            _context.Set<T>().Remove(entity);
+            return entity;
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -35,6 +52,21 @@ namespace Infrastructure.Data
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public void Update(T entity)
+        {
+            if (entity == null)
+            {
+                throw new Exception($"$Object of type {typeof(T)} not found");
+            }
+            _context.Set<T>().Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)

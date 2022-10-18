@@ -5,10 +5,10 @@ var firstN = "Ion";
 //any
 var sample1 = true;
 //sample1 = "test";
-var sample2 = true;
-sample2 = "string";
-Math.round(sample2);
-var sampleLength = sample2.length;
+var sample2 = {};
+//sample2 = "string";
+//Math.round(sample2);
+//let sampleLength: number = (<string>sample2).length;
 //enum
 var Day;
 (function (Day) {
@@ -42,7 +42,8 @@ var newReadOnlyTuple = [true, "abcdefg", 1321231];
 var a = 10, b = 20;
 a > b ? console.log("a is greater than b") : console.log("b is greater or equal to a");
 //for..of
-// let text = "Today is the day";
-// for (var char of text) {
-//   console.log(char);
-// }
+var text = "Today is the day";
+for (var _i = 0, text_1 = text; _i < text_1.length; _i++) {
+    var char = text_1[_i];
+    console.log(char);
+}

@@ -8,9 +8,9 @@ let sample1 = true;
 //sample1 = "test";
 
 let sample2: object = {};
-sample2 = "string";
-Math.round(sample2);
-let sampleLength: number = (<string>sample2).length;
+//sample2 = "string";
+//Math.round(sample2);
+//let sampleLength: number = (<string>sample2).length;
 //enum
 enum Day {Monday = 1, Tuesday = 2, Wednesday = 3}
 let d: Day.Monday;
@@ -45,8 +45,8 @@ let a: number = 10,  b = 20;
 a > b ? console.log("a is greater than b") : console.log("b is greater or equal to a");
 
 //for..of
-// let text = "Today is the day";
+let text = "Today is the day";
 
-// for (var char of text) {
-//   console.log(char);
-// }
+for (let char of text) {
+  console.log(char);
+}

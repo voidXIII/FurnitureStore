@@ -1,0 +1,8 @@
+<header>
+    <span>Showing <strong>{{(pageNumber) * pageSize + 1}} -
+            {{(pageNumber + 1) * pageSize
+            > this.totalCount
+            ? this.totalCount
+            : (pageNumber + 1) * pageSize}}
+        </strong> of <strong>{{this.totalCount}}</strong> Results</span>
+</header>

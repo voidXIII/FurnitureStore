@@ -57,5 +57,11 @@ namespace API.Controllers
             await _roomService.UpdateRoomAsync(id, roomToUpdate);
             return Ok(roomToUpdate);
         }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<IReadOnlyList<RoomType>>> GetTypes()
+        {
+            return Ok(await _roomService.GetAllTypes());
+        }
     }
 }

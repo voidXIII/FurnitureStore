@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Dtos;
 using API.Helpers;
+using Core.Entities;
 using Core.Specifications;
 
 namespace API.Services
@@ -15,5 +16,6 @@ namespace API.Services
         Task<RoomToReturnDto> CreateRoomAsync(RoomToCreateDto roomToCreate);
         Task UpdateRoomAsync(int id, RoomToUpdateDto roomToUpdate);
         Task DeleteRoomAsync(int id);
+        Task<IReadOnlyList<RoomType>> GetAllTypes();
     }
 }

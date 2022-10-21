@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="content">
+
+        <section class="side-bar">
+            <mat-form-field class="sort-select">
+                <mat-label>Sort</mat-label>
+                <mat-select (change)="OnSortSelected($event.target.value)">
+                    <mat-option *ngFor="let sort of sortOptions" [value]="sort.value"
+                        (click)="OnSortSelected(sort.value)">{{sort.name}}
+                    </mat-option>
+
+                </mat-select>
+            </mat-form-field>
+
+
+            <h5 class="filter-title" style="font-size:large">Room Type</h5>
+            <mat-selection-list class="roomtype" [multiple]="false">
+                <mat-list-option *ngFor="let item of types" [value]="item.id" (click)="OnTypeSelected(item.id)">
+                    {{item.roomTypeName}}
+                </mat-list-option>
+            </mat-selection-list>
+        </section>
+
+        <section class="rooms">
+            <div class="search-elem">
+                <app-paging-header [totalCount]="totalCount" [pageSize]="this.bookParams.pageSize"
+                    [pageNumber]="this.bookParams.pageNumber"></app-paging-header>
+                <div class="search-buttons">
+                    <input (keyup.enter)="OnSearch()" type="text" class="search-form" #search style="width:300px"
+                        placeholder="Search">
+                    <button mat-stroked-button color="primary" (click)="OnSearch()" class="search">Search</button>
+                    <button mat-stroked-button color="warn" (click)="OnReset()" class="reset">Reset</button>
+                </div>
+            </div>
+
+            <mat-grid-list cols="3">
+                <mat-grid-tile *ngFor="let room of rooms">
+                    <app-room [room]="room"></app-room>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+
+            <div class="d-flex justify-content-center">
+                <mat-paginator
+                    [pageSize]="bookParams.pageSize"
+                    [length]="totalCount"
+                    [pageIndex]="bookParams.pageNumber"
+                    (page)="OnPageChanged($event)"
+                  ></mat-paginator>
+            </div>
+            
+        </section>
+    </div>
+</div>

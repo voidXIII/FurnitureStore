@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class BuggyController : BaseApiController
     {
         private readonly HotelContext _context;

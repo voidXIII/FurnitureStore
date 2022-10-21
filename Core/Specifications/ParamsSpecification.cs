@@ -8,7 +8,7 @@ namespace Core.Specifications
     public class ParamsSpecification
     {
         private const int MaxPageSize = 50;
-        public int PageIndex { get; set; } = 1;
+        public int PageIndex { get; set; } = 0;
         private int _pageSize = 6;
         public int PageSize
         {

@@ -19,7 +19,7 @@ namespace Core.Specifications
             AddInclude(x => x.RoomType);
             AddInclude(x => x.BookingStatus);
             AddOrderBy(x => x.RoomName);
-            ApplyPaging(paramsSpec.PageSize * (paramsSpec.PageIndex - 1), paramsSpec.PageSize);
+            ApplyPaging(paramsSpec.PageSize * (paramsSpec.PageIndex), paramsSpec.PageSize);
 
             if(!string.IsNullOrEmpty(paramsSpec.Sort))
             {

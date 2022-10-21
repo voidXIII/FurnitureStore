@@ -15,11 +15,13 @@ namespace API.Services
     public class RoomService : IRoomService
     {
         private readonly IRepository<Room> _roomRepo;
+        private readonly IRepository<RoomType> _roomTypeRepo;
         private readonly IMapper _mapper;
-        public RoomService(IRepository<Room> roomRepo, IMapper mapper)
+        public RoomService(IRepository<Room> roomRepo, IRepository<RoomType> roomTypeRepo, IMapper mapper)
         {
             _mapper = mapper;
             _roomRepo = roomRepo;
+            _roomTypeRepo = roomTypeRepo;
         }
         public async Task<RoomToReturnDto> CreateRoomAsync(RoomToCreateDto roomToCreate)
         {
@@ -56,8 +58,9 @@ namespace API.Services
         public async Task<Pagination<RoomToReturnDto>> GetRoomsAsync(ParamsSpecification paramsSpec)
         {
             var spec = new RoomsWithTypesAndBookingStatusesSpecification(paramsSpec);
+            var countSpec = new RoomWithFiltersForCountSpecification(paramsSpec);
             var rooms = await _roomRepo.ListAsync(spec);
-            var totalCount = await _roomRepo.CountAsync();
+            var totalCount = await _roomRepo.CountAsync(countSpec);
             var dataToReturn = _mapper.Map<IReadOnlyList<RoomToReturnDto>>(rooms);
             return new Pagination<RoomToReturnDto>(paramsSpec.PageIndex, paramsSpec.PageSize, totalCount, dataToReturn);
         }
@@ -83,6 +86,10 @@ namespace API.Services
             var dataToUpdate = _mapper.Map(roomToUpdate, room);
             _roomRepo.Update(dataToUpdate);
             await _roomRepo.SaveChangesAsync();
+        }
+
+        public async Task<IReadOnlyList<RoomType>> GetAllTypes(){
+            return await _roomTypeRepo.ListAllAsync();
         }
     }
 }

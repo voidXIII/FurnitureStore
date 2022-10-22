@@ -1,3 +1,6 @@
+.logo{
+    cursor: pointer;
+}
 .navigation-bar{
     display: flex;
     flex-direction: column;
@@ -62,4 +65,13 @@
 
 .sign-up{
     margin-left: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #343a40;
+
+    &.active{
+        color:darkorange;
+    }
 }

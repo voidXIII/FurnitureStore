@@ -4,6 +4,7 @@ import { IPagination } from '../models/pagination';
 import { IRoomType } from '../models/roomType';
 import { map } from 'rxjs';
 import { BookParams } from '../models/bookParams';
+import { IRoom } from '../models/room';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,10 @@ export class BookService {
           return response.body;
         })
       )
+  }
+
+  getRoom(id: number){
+    return this.http.get<IRoom>(this.baseUrl + 'rooms/' + id);
   }
 
   getTypes() {

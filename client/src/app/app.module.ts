@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
-import { BookModule } from './book/book.module';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { BookModule } from './book/book.module';
     BrowserAnimationsModule,
     LayoutModule,
     HttpClientModule,
-    BookModule
+    HomeModule
     ],
   providers: [],
   bootstrap: [AppComponent]

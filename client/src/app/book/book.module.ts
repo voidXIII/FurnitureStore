@@ -9,14 +9,17 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { RoomDetailsComponent } from './room-details/room-details.component'; 
+import { BookRoutingModule } from './book-routing.module';
 
 
 @NgModule({
   declarations: [
     BookComponent,
     RoomComponent,
-    PerDayPipe
+    PerDayPipe,
+    RoomDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -26,10 +29,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatPaginatorModule
-  ],
-  exports: [
-    BookComponent
+    MatPaginatorModule,
+    BookRoutingModule
   ]
 })
 export class BookModule { }

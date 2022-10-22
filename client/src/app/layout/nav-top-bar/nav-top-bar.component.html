@@ -1,9 +1,10 @@
 <div class="navigation-bar">
-<img src="/assets/logo.png" style="max-height: 70px;" alt="logo">
+<img src="/assets/logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
 
     <nav class="menu" style="font-size: larger;">
-      <a class="menu-element" href="#">Home</a>
-      <a class="menu-element" href="#">Book</a>
+      <a class="menu-element" [routerLink]="['/']" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a class="menu-element" [routerLink]="['/book']" routerLinkActive="active">Book</a>
       <a class="menu-element" href="#">Contact</a>
     </nav>
     <div class="user">

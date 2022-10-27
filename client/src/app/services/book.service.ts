@@ -29,7 +29,7 @@ export class BookService {
     params = params.append('pageIndex', bookParams.pageNumber.toString());
     params = params.append('pageSize', bookParams.pageSize.toString());
 
-    return this.http.get<IPagination>(this.baseUrl + "rooms", { observe: 'response', params })
+    return this.http.get<IPagination>(this.baseUrl + 'rooms', { observe: 'response', params })
       .pipe(
         map(response => {
           return response.body;
@@ -42,6 +42,6 @@ export class BookService {
   }
 
   getTypes() {
-    return this.http.get<IRoomType[]>(this.baseUrl + "rooms/types");
+    return this.http.get<IRoomType[]>(this.baseUrl + 'rooms/types');
   }
 }

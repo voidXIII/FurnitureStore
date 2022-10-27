@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+<mat-card-content>
+<form #form="ngForm" (ngSubmit)="form.form.valid && submitForm()" novalidate>
+  <p>
+    <mat-form-field appearance="outline">
+      <input type="text" matInput placeholder="Email" [(ngModel)]="userModel.email" #email="ngModel" name="Email" 
+      [ngClass]="{'mat-form-field-invalid': form.submitted && email.invalid}" required>
+    </mat-form-field>
+    <mat-error *ngIf="form.touched && !email.valid">Email is required</mat-error>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input type="password" matInput placeholder="Password" [(ngModel)]="userModel.password" name="Password" required>
+    </mat-form-field>
+  </p>
+
+
+  <div class="button">
+    <button type="submit" [disabled]="!form.valid" mat-button>Login</button>
+  </div>
+
+</form>
+</mat-card-content>
+</mat-card>

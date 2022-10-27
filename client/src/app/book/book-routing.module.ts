@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BookComponent } from './book.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';

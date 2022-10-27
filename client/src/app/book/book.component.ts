@@ -3,7 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { BookParams } from '../models/bookParams';
 import { IRoom } from '../models/room';
 import { IRoomType } from '../models/roomType';
-import { BookService } from '../_services/book.service';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book',
@@ -35,16 +35,13 @@ export class BookComponent implements OnInit {
       this.bookParams.pageNumber = response.pageIndex;
       this.bookParams.pageSize = response.pageSize;
       this.totalCount = response.count;
-    }, error => {
-      console.log(error);
     });
+    ;
   }
 
   GetTypes() {
     this.bookService.getTypes().subscribe(response => {
       this.types = [{id:0, roomTypeName:'All'}, ...response];
-    }, error => {
-      console.log(error);
     })
   }
 

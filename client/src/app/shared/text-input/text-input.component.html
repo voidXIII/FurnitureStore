@@ -1,0 +1,44 @@
+<mat-form-field 
+  appearance="outline"
+    [ngClass]="
+      controlDir && controlDir.control && controlDir.control.dirty
+        ? !controlDir.control.valid
+          ? 'mat-form-field-invalid'
+          : 'mat-form-field-valid'
+        : ''
+    ">
+  <mat-label>{{ label }}</mat-label>
+  <input id="{{ label }}" 
+    matInput 
+    #input 
+    placeholder="{{ label }}" 
+    [type]="type"
+    (input)="onChange($any($event.target).value)" 
+    (blur)="onTouched()" />
+
+  <mat-icon *ngIf="!controlDir.control?.touched && !controlDir.control?.dirty" 
+    matSuffix>{{ icon }}</mat-icon>
+  <mat-icon *ngIf="
+    controlDir.control?.invalid &&
+    (controlDir.control?.touched || controlDir.control?.dirty)" 
+    matSuffix color="warn">close</mat-icon>
+
+  <mat-icon *ngIf="controlDir.control?.valid" 
+    matSuffix color="primary">check_circle_outline</mat-icon>
+
+  <mat-hint *ngIf="!controlDir.control?.dirty && !controlDir.control?.touched">
+    Enter your {{ label }}.</mat-hint>
+    
+</mat-form-field>
+<div *ngIf="
+      controlDir &&
+      controlDir.control &&
+      !controlDir.control.valid &&
+      controlDir.control.dirty
+    ">
+  <mat-error *ngIf="controlDir.control?.errors?.required">This field is required.</mat-error>
+  <mat-error *ngIf="controlDir.control?.errors?.email">You have entered a invalid {{ label }}.</mat-error>
+  <mat-error *ngIf="controlDir.control?.errors?.minlength">Your {{ label }} is to short.</mat-error
+>
+
+</div>

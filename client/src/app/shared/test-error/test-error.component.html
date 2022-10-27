@@ -1,0 +1,13 @@
+<div>
+    <button (click)="get500Error()" mat-stroked-button color="primary">Test 500 Error</button>
+    <button (click)="get404Error()"  mat-stroked-button color="primary">Test 404 Error</button>
+    <button (click)="get400Error()"  mat-stroked-button color="primary">Test 400 Error</button>
+    <button (click)="get400ValidationError()"  mat-stroked-button color="primary">Test 400 Validation Error</button>
+    <div *ngIf="validationsErrors">
+        <ul>
+            <li *ngFor="let error of validationsErrors">
+                {{error}}
+            </li>
+        </ul>
+    </div>
+</div>

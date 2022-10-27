@@ -5,14 +5,14 @@
       <a class="menu-element" [routerLink]="['/']" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact:true}">Home</a>
       <a class="menu-element" [routerLink]="['/book']" routerLinkActive="active">Book</a>
-      <a class="menu-element" href="#">Contact</a>
+      <a class="menu-element" [routerLink]="['/test-error']" routerLinkActive="active">Errors</a>
     </nav>
     <div class="user">
       <a class="cart-position">
         <mat-icon class="cart">shopping_cart</mat-icon>
         <div class="cart-no">1</div>
       </a>
-      <button mat-stroked-button color="primary" class="login" href="#">Login</button>
-      <button mat-stroked-button color="warn" href="#" class="sign-up">Sign Up</button>
+      <button routerLink="/account/login" mat-stroked-button color="primary" class="login">Login</button>
+      <button routerLink="/account/register" mat-stroked-button color="warn" class="sign-up">Sign Up</button>
     </div>
   </div>

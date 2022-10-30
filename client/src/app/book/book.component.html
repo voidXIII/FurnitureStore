@@ -1,8 +1,9 @@
 <div class="container">
     <div class="content">
-
+    
         <section class="side-bar">
-            <mat-form-field class="sort-select">
+            <ng-container *ngIf="types">
+            <mat-form-field class="sort-select" appearance="standard">
                 <mat-label>Sort</mat-label>
                 <mat-select (change)="OnSortSelected($event.target.value)">
                     <mat-option *ngFor="let sort of sortOptions" [value]="sort.value"
@@ -19,13 +20,14 @@
                     {{item.roomTypeName}}
                 </mat-list-option>
             </mat-selection-list>
+        </ng-container>
         </section>
 
         <section class="rooms">
-            <div class="search-elem">
+            <div class="search-elem" ng *ngIf="rooms">
                 <app-paging-header [totalCount]="totalCount" [pageSize]="this.bookParams.pageSize"
                     [pageNumber]="this.bookParams.pageNumber"></app-paging-header>
-                <div class="search-buttons">
+                <div class="search-buttons" *ngIf="rooms">
                     <input (keyup.enter)="OnSearch()" type="text" class="search-form" #search style="width:300px"
                         placeholder="Search">
                     <button mat-stroked-button color="primary" (click)="OnSearch()" class="search">Search</button>
@@ -40,7 +42,7 @@
 
             </mat-grid-list>
 
-            <div class="paginator">
+            <div class="paginator" *ngIf="rooms">
                 <mat-paginator
                     [pageSize]="bookParams.pageSize"
                     [length]="totalCount"

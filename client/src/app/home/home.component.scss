@@ -2,3 +2,24 @@ h1{
     display: flex;
     justify-content: center;
 }
+
+.featured-content{
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+.featured{
+    height: 250px;
+}
+
+img{
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+}
+
+.contain {
+    width: 100%;
+    margin-top: 100px;
+}

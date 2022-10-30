@@ -69,7 +69,7 @@ export class BookComponent implements OnInit {
   }
 
   OnReset(){
-    this.searchTerm.nativeElement.value = undefined;
+    this.searchTerm.nativeElement.value = '';
     this.bookParams = new BookParams();
     this.GetProducts();
   }

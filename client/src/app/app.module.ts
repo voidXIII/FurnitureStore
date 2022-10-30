@@ -9,6 +9,8 @@ import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 
 
 @NgModule({
@@ -22,10 +24,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LayoutModule,
     HttpClientModule,
     HomeModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxSpinnerModule
     ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

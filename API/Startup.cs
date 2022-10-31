@@ -1,10 +1,12 @@
-using API.Helpers;
+using Application.Helpers;
 using API.Middleware;
 using API.Services;
-using Core.Interfaces;
+using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Application.Services;
+using StackExchange.Redis;
 
 namespace API
 {
@@ -24,6 +26,11 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<HotelContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+            services.AddSingleton<ConnectionMultiplexer>(c => {
+                var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"),
+                true);
+                return ConnectionMultiplexer.Connect(configuration);
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });

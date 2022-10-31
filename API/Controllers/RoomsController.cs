@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Dtos;
-using API.Errors;
+using Application.Errors;
 using API.Services;
+using Application.Services;
 using AutoMapper;
-using Core.Entities;
-using Core.Interfaces;
-using Core.Specifications;
+using Application.Interfaces;
+using Application.Specifications;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Application.Dtos;
 
 namespace API.Controllers
 {
@@ -59,7 +59,7 @@ namespace API.Controllers
         }
 
         [HttpGet("types")]
-        public async Task<ActionResult<IReadOnlyList<RoomType>>> GetTypes()
+        public async Task<ActionResult<IReadOnlyList<RoomTypeToReturnDto>>> GetTypes()
         {
             return Ok(await _roomService.GetAllTypes());
         }

@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Entities;
-using Core.Specifications;
+using Domain.Entities;
+using Application.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data

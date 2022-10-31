@@ -2,7 +2,7 @@
  {
   "RoomNumber": 101,
   "RoomName": "Standard Room",
-  "RoomMainImageUrl": "images/rooms/room-101.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-101.png",
   "RoomPrice": 300,
   "BookingStatusId": 1,
   "RoomTypeId": 1,
@@ -13,7 +13,7 @@
  {
   "RoomNumber": 102,
   "RoomName": "Standard Room",
-  "RoomMainImageUrl": "images/rooms/room-102.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-102.png",
   "RoomPrice": 300,
   "BookingStatusId": 1,
   "RoomTypeId": 1,
@@ -24,7 +24,7 @@
  {
   "RoomNumber": 103,
   "RoomName": "Standard Room",
-  "RoomMainImageUrl": "images/rooms/room-103.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-103.png",
   "RoomPrice": 300,
   "BookingStatusId": 2,
   "RoomTypeId": 1,
@@ -35,7 +35,7 @@
  {
   "RoomNumber": 104,
   "RoomName": "Standard Room",
-  "RoomMainImageUrl": "images/rooms/room-104.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-104.png",
   "RoomPrice": 300,
   "BookingStatusId": 2,
   "RoomTypeId": 1,
@@ -46,7 +46,7 @@
  {
   "RoomNumber": 105,
   "RoomName": "Standard Room",
-  "RoomMainImageUrl": "images/rooms/room-105.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-105.png",
   "RoomPrice": 300,
   "BookingStatusId": 3,
   "RoomTypeId": 1,
@@ -57,7 +57,7 @@
  {
   "RoomNumber": 106,
   "RoomName": "King Size Room",
-  "RoomMainImageUrl": "images/rooms/room-106.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-106.png",
   "RoomPrice": 450,
   "BookingStatusId": 3,
   "RoomTypeId": 2,
@@ -68,7 +68,7 @@
  {
   "RoomNumber": 107,
   "RoomName": "King Size Room",
-  "RoomMainImageUrl": "images/rooms/room-107.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-107.png",
   "RoomPrice": 450,
   "BookingStatusId": 3,
   "RoomTypeId": 2,
@@ -79,7 +79,7 @@
  {
   "RoomNumber": 108,
   "RoomName": "King Size Room",
-  "RoomMainImageUrl": "images/rooms/room-108.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-108.png",
   "RoomPrice": 450,
   "BookingStatusId": 1,
   "RoomTypeId": 2,
@@ -90,7 +90,7 @@
  {
   "RoomNumber": 109,
   "RoomName": "King Size Room",
-  "RoomMainImageUrl": "images/rooms/room-109.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-109.png",
   "RoomPrice": 450,
   "BookingStatusId": 2,
   "RoomTypeId": 2,
@@ -101,7 +101,7 @@
  {
   "RoomNumber": 110,
   "RoomName": "King Size Room",
-  "RoomMainImageUrl": "images/rooms/room-110.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-110.png",
   "RoomPrice": 450,
   "BookingStatusId": 2,
   "RoomTypeId": 2,
@@ -112,7 +112,7 @@
  {
   "RoomNumber": 111,
   "RoomName": "Family Room",
-  "RoomMainImageUrl": "images/rooms/room-111.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-111.png",
   "RoomPrice": 750,
   "BookingStatusId": 2,
   "RoomTypeId": 3,
@@ -123,7 +123,7 @@
  {
   "RoomNumber": 112,
   "RoomName": "Family Room",
-  "RoomMainImageUrl": "images/rooms/room-112.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-112.png",
   "RoomPrice": 750,
   "BookingStatusId": 2,
   "RoomTypeId": 3,
@@ -134,7 +134,7 @@
  {
   "RoomNumber": 113,
   "RoomName": "Family Room",
-  "RoomMainImageUrl": "images/rooms/room-113.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-113.png",
   "RoomPrice": 750,
   "BookingStatusId": 3,
   "RoomTypeId": 3,
@@ -145,7 +145,7 @@
  {
   "RoomNumber": 114,
   "RoomName": "Family Room",
-  "RoomMainImageUrl": "images/rooms/room-114.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-114.png",
   "RoomPrice": 750,
   "BookingStatusId": 1,
   "RoomTypeId": 3,
@@ -156,7 +156,7 @@
  {
   "RoomNumber": 115,
   "RoomName": "Family Room",
-  "RoomMainImageUrl": "images/rooms/room-115.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-115.png",
   "RoomPrice": 750,
   "BookingStatusId": 1,
   "RoomTypeId": 3,
@@ -167,7 +167,7 @@
  {
   "RoomNumber": 116,
   "RoomName": "VIP Room",
-  "RoomMainImageUrl": "images/rooms/room-116.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-116.png",
   "RoomPrice": 700,
   "BookingStatusId": 3,
   "RoomTypeId": 4,
@@ -178,7 +178,7 @@
  {
   "RoomNumber": 117,
   "RoomName": "VIP Room",
-  "RoomMainImageUrl": "images/rooms/room-117.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-117.png",
   "RoomPrice": 700,
   "BookingStatusId": 3,
   "RoomTypeId": 4,
@@ -189,7 +189,7 @@
  {
   "RoomNumber": 118,
   "RoomName": "VIP Room",
-  "RoomMainImageUrl": "images/rooms/room-118.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-118.png",
   "RoomPrice": 700,
   "BookingStatusId": 2,
   "RoomTypeId": 4,
@@ -200,7 +200,7 @@
  {
   "RoomNumber": 119,
   "RoomName": "VIP Room",
-  "RoomMainImageUrl": "images/rooms/room-119.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-119.png",
   "RoomPrice": 700,
   "BookingStatusId": 1,
   "RoomTypeId": 4,
@@ -211,7 +211,7 @@
  {
   "RoomNumber": 120,
   "RoomName": "VIP Room",
-  "RoomMainImageUrl": "images/rooms/room-120.png",
+  "RoomMainImageUrl": "https://localhost:5001/images/rooms/room-120.png",
   "RoomPrice": 700,
   "BookingStatusId": 1,
   "RoomTypeId": 4,

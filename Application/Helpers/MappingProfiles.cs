@@ -1,6 +1,7 @@
 using AutoMapper;
 using Application.Dtos;
 using Domain.Entities;
+using Application.Dtos.Basket;
 
 namespace Application.Helpers
 {
@@ -13,6 +14,10 @@ namespace Application.Helpers
                 .ForMember(d => d.RoomType, o => o.MapFrom(s => s.RoomType.RoomTypeName));
             CreateMap<RoomToCreateDto, Room>();
             CreateMap<RoomToUpdateDto, Room>();
+            CreateMap<RoomType, RoomTypeToReturnDto>();
+            CreateMap<CustomerBasket, CustomerBasketToReturnDto>().ReverseMap();
+            CreateMap<CustomerBasketCreateOrUpdateDTO, CustomerBasket>();
+            CreateMap<BasketItem, CustomerBasketItemsToReturnDto>().ReverseMap();
         }
     }
 }

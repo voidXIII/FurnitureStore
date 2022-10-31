@@ -1,12 +1,9 @@
 using Application.Helpers;
 using API.Middleware;
-using API.Services;
-using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Application.Services;
 using StackExchange.Redis;
+using API.Extensions;
 
 namespace API
 {
@@ -21,20 +18,16 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IRoomService, RoomService>();
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<HotelContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
-            services.AddSingleton<ConnectionMultiplexer>(c => {
+            services.AddApplicationServices();
+            services.AddSingleton<IConnectionMultiplexer>(c => {
                 var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"),
                 true);
                 return ConnectionMultiplexer.Connect(configuration);
             });
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
-            });
+            services.AddSwaggerDocumentation();
             services.AddCors(option =>
             {
                 option.AddPolicy("CorsPolicy", policy =>
@@ -50,9 +43,7 @@ namespace API
 
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
+                app.UseSwaggerDocumentation();
             }
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseHttpsRedirection();

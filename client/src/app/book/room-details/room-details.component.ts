@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IRoom } from 'src/app/models/room';
+import { BasketService } from 'src/app/services/basket.service';
 import { BookService } from 'src/app/services/book.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class RoomDetailsComponent implements OnInit {
   room: IRoom;
-  constructor(private bookService: BookService, private activateRoute: ActivatedRoute) { }
+  constructor(private bookService: BookService, private activateRoute: ActivatedRoute, private basketService: BasketService) { }
 
   ngOnInit(): void {
     this.activateRoute.paramMap.subscribe(response => {
@@ -24,5 +25,9 @@ export class RoomDetailsComponent implements OnInit {
     }, error =>{
       console.log(error);
     });
+  }
+
+  addItemToBasket(){
+    this.basketService.addItemToBasket(this.room);
   }
 }

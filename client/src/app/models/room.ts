@@ -18,7 +18,7 @@ export interface IRoom {
 
 export class PerDayPipe implements PipeTransform {
   transform(value: any) {
-    return value + " / day"
+    return value + " / night"
   }
 }
 

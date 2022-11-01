@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IRoom } from './models/room';
+import { BasketService } from './services/basket.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,16 @@ import { IRoom } from './models/room';
 export class AppComponent implements OnInit {
   title = 'HotelBookingService';
 
-  constructor() {}
+  constructor(private basketService: BasketService) {}
 
   ngOnInit(): void {
-
+    const basketId = localStorage.getItem('basket_id');
+    if (basketId){
+      this.basketService.getBasket(basketId).subscribe(() => {
+        console.log('initialized basket');;
+      }, error => {
+        console.log(error);
+      })
+    }
   }
 }

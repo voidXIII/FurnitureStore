@@ -1,0 +1,9 @@
+<div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+    Order Summary
+</div>
+<div class="p-4">
+    <div *ngIf="(basketTotals$ | async) as basketTotal" class="d-flex justify-content-between py-3 border-bottom">
+        <strong>Total: </strong>
+        <span><strong>{{basketTotal.total | currency}}</strong></span>
+    </div>
+</div>

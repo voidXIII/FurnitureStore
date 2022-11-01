@@ -8,9 +8,8 @@
       <a class="menu-element" [routerLink]="['/test-error']" routerLinkActive="active">Errors</a>
     </nav>
     <div class="user">
-      <a class="cart-position">
-        <mat-icon class="cart">shopping_cart</mat-icon>
-        <div class="cart-no">1</div>
+      <a routerLink="/basket" class="cart-position">
+        <mat-icon *ngIf="(basket$ | async) as basket" matBadge="{{basket.items.length}}" matBadgeColor="accent" class="cart">shopping_cart</mat-icon>
       </a>
       <button routerLink="/account/login" mat-stroked-button color="primary" class="login">Login</button>
       <button routerLink="/account/register" mat-stroked-button color="warn" class="sign-up">Sign Up</button>

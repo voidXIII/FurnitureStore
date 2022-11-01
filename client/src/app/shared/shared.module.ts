@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { OrderTotalsComponent } from './order-totals/order-totals.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TextInputComponent,
     TestErrorComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    OrderTotalsComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   exports: [
     PagingHeaderComponent,
     PagingComponent,
-    TextInputComponent
+    TextInputComponent,
+    OrderTotalsComponent
   ]
 })
 export class SharedModule { }

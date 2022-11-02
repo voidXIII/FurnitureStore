@@ -64,7 +64,7 @@ namespace Application.Services
         {
             if (await CheckEmailExists(registerDto.Email))
             {
-                throw new UnauthorizedAccessException("Email address in use!");
+                return null;
             }
 
             var user = new AppUser

@@ -1,16 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.Errors;
 using API.Services;
-using Application.Services;
-using AutoMapper;
-using Application.Interfaces;
 using Application.Specifications;
-using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Application.Dtos;
 
 namespace API.Controllers

@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 using API.Extensions;
+using Infrastructure.Identity;
 
 namespace API
 {
@@ -21,7 +22,9 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<HotelContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x =>x.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
             services.AddApplicationServices();
+            services.AddIdentityServices(_config);
             services.AddSingleton<IConnectionMultiplexer>(c => {
                 var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"),
                 true);
@@ -53,6 +56,7 @@ namespace API
 
             app.UseCors("CorsPolicy");
             
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

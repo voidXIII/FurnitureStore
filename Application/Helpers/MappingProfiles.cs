@@ -2,6 +2,8 @@ using AutoMapper;
 using Application.Dtos;
 using Domain.Entities;
 using Application.Dtos.Basket;
+using Domain.Entities.Identity;
+using Application.Dtos.User;
 
 namespace Application.Helpers
 {

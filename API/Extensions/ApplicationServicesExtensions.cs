@@ -14,6 +14,8 @@ namespace API.Extensions
         {
             services.AddScoped<IRoomService, RoomService>();
             services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ITokenService, TokenService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.Configure<ApiBehaviorOptions>(options => 

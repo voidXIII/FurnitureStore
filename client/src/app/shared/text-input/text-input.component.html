@@ -38,7 +38,7 @@
     ">
   <mat-error *ngIf="controlDir.control?.errors?.required">This field is required.</mat-error>
   <mat-error *ngIf="controlDir.control?.errors?.email">You have entered a invalid {{ label }}.</mat-error>
-  <mat-error *ngIf="controlDir.control?.errors?.minlength">Your {{ label }} is to short.</mat-error
->
+  <mat-error *ngIf="controlDir.control?.errors?.minlength">Your {{ label }} is to short.</mat-error>
+  <mat-error *ngIf="controlDir.control?.errors?.emailExist">Email address in use.</mat-error>
 
 </div>

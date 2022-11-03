@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { IPagination } from '../models/pagination';
 import { IRoomType } from '../models/roomType';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { BookParams } from '../models/bookParams';
 import { IRoom } from '../models/room';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  baseUrl = 'https://localhost:5001/api/';
+
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -43,5 +45,17 @@ export class BookService {
 
   getTypes() {
     return this.http.get<IRoomType[]>(this.baseUrl + 'rooms/types');
+  }
+
+  addRoom(room: FormData){
+    return this.http.post<IRoom>(this.baseUrl + 'rooms', room);
+  }
+
+  updateRoom(id:number, room: FormData){
+    return this.http.put<IRoom>(this.baseUrl + 'rooms/' + id, room)
+  }
+
+  deleteRoom(id: number){
+    return this.http.delete<IRoom>(this.baseUrl + 'rooms/' + id);
   }
 }

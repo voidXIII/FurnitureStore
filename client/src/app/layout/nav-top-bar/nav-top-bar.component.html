@@ -11,7 +11,19 @@
       <a routerLink="/basket" class="cart-position">
         <mat-icon *ngIf="(basket$ | async) as basket" matBadge="{{basket.items.length}}" matBadgeColor="accent" class="cart">shopping_cart</mat-icon>
       </a>
-      <button routerLink="/account/login" mat-stroked-button color="primary" class="login">Login</button>
-      <button routerLink="/account/register" mat-stroked-button color="warn" class="sign-up">Sign Up</button>
+      <ng-container *ngIf="(currentUser$ | async) === null">
+        <button routerLink="/account/login" mat-stroked-button color="primary" class="login">Login</button>
+        <button routerLink="/account/register" mat-stroked-button color="warn" class="sign-up">Sign Up</button>
+      </ng-container>
+
+      <ng-container *ngIf="(currentUser$ | async) as user">
+        <button mat-button [matMenuTriggerFor]="menu"><u>Welcome {{user.displayName}}</u><mat-icon>arrow_drop_down</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+          <button routerLink="/basket" mat-menu-item><mat-icon>shopping_cart</mat-icon>Cart</button>
+          <button (click)="logout()" mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
+        </mat-menu>
+
+      </ng-container>
     </div>
   </div>

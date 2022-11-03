@@ -44,10 +44,6 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
             var register = await _accountService.Register(registerDto);
-            if (register == null)
-            {
-                return BadRequest("Email is already in use!");
-            }
             return Ok(register);
         }
 

@@ -5,6 +5,7 @@ using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Application.Errors;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace API.Middleware
@@ -27,7 +28,7 @@ namespace API.Middleware
             {
                 await _next.Invoke(context);
             }
-            catch (NotFoundException ex)
+            catch (EntityNotFoundException ex)
             {
                 await HandleExceptionAsync(context, ex, HttpStatusCode.NotFound,
                     "Resource not found, verify and try again!");
@@ -35,6 +36,15 @@ namespace API.Middleware
             catch (EntityAlreadyExistsException ex)
             {
                 await HandleExceptionAsync(context, ex, HttpStatusCode.BadRequest);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                await HandleExceptionAsync(context, ex, HttpStatusCode.InternalServerError,
+                    "Data may have been modified or deleted. Please reload the page.");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                await HandleExceptionAsync(context, ex, HttpStatusCode.Unauthorized);
             }
             catch (Exception ex)
             {

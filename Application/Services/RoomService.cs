@@ -46,7 +46,7 @@ namespace Application.Services
 
             if(room == null)
             {
-                throw NotFoundException.OfType<Room>(id);
+                throw EntityNotFoundException.OfType<Room>(id);
             }
             await _roomRepo.DeleteAsync(id);
             await _roomRepo.SaveChangesAsync();
@@ -68,7 +68,7 @@ namespace Application.Services
             var room = await _roomRepo.GetEntityWithSpec(spec);
             if(room == null)
             {
-                throw NotFoundException.OfType<Room>(id);
+                throw EntityNotFoundException.OfType<Room>(id);
             }
             return _mapper.Map<RoomToReturnDto>(room);
         }
@@ -78,7 +78,7 @@ namespace Application.Services
             var room = await _roomRepo.GetByIdAsync(id);
             if(room == null)
             {
-                throw NotFoundException.OfType<Room>(id);
+                throw EntityNotFoundException.OfType<Room>(id);
             }
             var dataToUpdate = _mapper.Map(roomToUpdate, room);
             _roomRepo.Update(dataToUpdate);

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
-import { EmailService } from './EmailService'
-import { EmailValidator } from './EmailValidator';
+import { FormGroup, FormBuilder, Validators, AsyncValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { map, of, switchMap, timer } from 'rxjs';
+import { Validator } from 'src/app/shared/validators/emailnottaken';
 
 @Component({
   selector: 'app-register',
@@ -10,35 +13,32 @@ import { EmailValidator } from './EmailValidator';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  promocodes = new FormArray([]);
-  constructor(private formBuilder: FormBuilder, private emailService: EmailService) { }
+  emailNotTakenValidator = new Validator(this.accountService)
+
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.createRegisterForm();
-    //this.createRegisterFormWithFormBuilder()
   }
 
   createRegisterForm(){
-    this.registerForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email], 
-      [EmailValidator.createValidator(this.emailService)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
-    })
-  }
-
-  createRegisterFormWithFormBuilder(){
     this.registerForm = this.formBuilder.group({
-      email: ['helloworld@gmail.com', [Validators.required, Validators.email]],
-      password:['12345678', [Validators.required, Validators.minLength(8)]],
+      displayName: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email], [this.emailNotTakenValidator.validateEmailNotTaken()]],
+      password:[null, [Validators.required, Validators.minLength(6)]],
     });
   }
 
+
   onSubmit(){
-    console.log(this.registerForm.value)
-    console.log(this.promocodes.value)
+    this.accountService.register(this.registerForm.value).subscribe(
+      () => { 
+        this.router.navigateByUrl('/book') 
+      }, error => {
+        this.snackBar.open(error.errors, 'Close', {
+          duration: 5000
+        });
+    })
   }
 
-  addPromocode() {
-    this.promocodes.push(new FormControl(''));
-  }
 }

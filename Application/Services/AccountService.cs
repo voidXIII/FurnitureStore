@@ -1,4 +1,5 @@
 using Application.Dtos.User;
+using Application.Errors;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities.Identity;
@@ -64,7 +65,7 @@ namespace Application.Services
         {
             if (await CheckEmailExists(registerDto.Email))
             {
-                return null;
+                throw new UnauthorizedAccessException("Email address in use!");
             }
 
             var user = new AppUser

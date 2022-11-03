@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatMenuModule
   ],
   exports: [
     NavTopBarComponent

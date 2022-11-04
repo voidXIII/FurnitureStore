@@ -9,16 +9,8 @@ namespace Application.Dtos
         public string RoomName { get; set; }
 
         [Required]
-        public string RoomMainImageUrl { get; set; }
         public decimal RoomPrice { get; set; }
 
-        [Required]
-        [Range(1,3)]
-        public int BookingStatusId {get; set; }
-
-        [Required]
-        [Range(1,4)]
-        public int RoomTypeId { get; set; }
         public int RoomCapacity { get; set; }
         
         [Required]

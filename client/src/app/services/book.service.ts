@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { IPagination } from '../models/pagination';
 import { IRoomType } from '../models/roomType';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { BookParams } from '../models/bookParams';
 import { IRoom } from '../models/room';
 import { environment } from 'src/environments/environment';
@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BookService {
+  refresh: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   baseUrl = environment.apiUrl;
 
@@ -56,6 +57,10 @@ export class BookService {
   }
 
   deleteRoom(id: number){
-    return this.http.delete<IRoom>(this.baseUrl + 'rooms/' + id);
+    return this.http.delete(this.baseUrl + 'rooms?id=' + id);
+  }
+
+  setRefresh(value: boolean): void {
+    this.refresh.next(value);
   }
 }

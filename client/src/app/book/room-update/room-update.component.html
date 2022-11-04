@@ -1,0 +1,12 @@
+<div class="form">
+    <h2>Update {{data.roomName}}</h2>
+    <form [formGroup]="roomUpdateForm" (ngSubmit)="onSubmit(room.id)" class="form">
+        <app-text-input formControlName="roomName" [label]="'Room Name'"></app-text-input>
+        <app-text-input formControlName="roomPrice" [label]="'Room Price'"></app-text-input>
+        <app-text-input formControlName="roomCapacity" [label]="'Room Capacity'"></app-text-input>
+        <app-text-input formControlName="roomDescription" [label]="'Room Description'"></app-text-input>
+
+        <button style="margin-top: 10px;" mat-flat-button [disabled]="!roomUpdateForm.valid">Submit</button>
+    </form>
+</div>
+

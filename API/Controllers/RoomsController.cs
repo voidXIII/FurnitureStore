@@ -28,7 +28,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateRoom([FromBody] RoomToCreateDto roomToCreate)
+        public async Task<ActionResult> CreateRoom([FromForm] RoomToCreateDto roomToCreate)
         {
             var result = await _roomService.CreateRoomAsync(roomToCreate);
             return CreatedAtAction(nameof(GetRoom), new { id = result.Id }, result);
@@ -42,7 +42,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateRoom(int id, [FromBody] RoomToUpdateDto roomToUpdate)
+        public async Task<ActionResult> UpdateRoom(int id, [FromForm] RoomToUpdateDto roomToUpdate)
         {
             await _roomService.UpdateRoomAsync(id, roomToUpdate);
             return Ok(roomToUpdate);

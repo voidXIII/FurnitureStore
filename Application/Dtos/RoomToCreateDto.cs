@@ -17,11 +17,11 @@ namespace Application.Dtos
 
         [Required]
         [Range(1,3)]
-        public int BookingStatusId {get; set; }
+        public int BookingStatusId {get; set; } = 1;
 
         [Required]
         [Range(1,4)]
-        public int RoomTypeId { get; set; }
+        public int RoomTypeId { get; set; } = 1;
         public int RoomCapacity { get; set; }
 
         [Required]

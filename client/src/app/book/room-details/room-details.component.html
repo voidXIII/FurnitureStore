@@ -13,6 +13,9 @@
         </mat-card-content>
         <mat-card-actions>
           <button (click)="addItemToBasket()" mat-button>Reserve</button>
+          <button mat-stroked-button color="primary" (click)="updateRoom(room)">Update Room</button>
+          <button mat-stroked-button color="warn" (click)="deleteRoom(room.id)">Delete</button>
+
         </mat-card-actions>
       </mat-card>
       

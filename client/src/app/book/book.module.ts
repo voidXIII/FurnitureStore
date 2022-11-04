@@ -12,6 +12,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RoomDetailsComponent } from './room-details/room-details.component'; 
 import { BookRoutingModule } from './book-routing.module';
+import { RoomAddComponent } from './room-add/room-add.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; 
+import { MatDialogModule } from '@angular/material/dialog'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { RoomUpdateComponent } from './room-update/room-update.component';
 
 
 @NgModule({
@@ -19,7 +24,9 @@ import { BookRoutingModule } from './book-routing.module';
     BookComponent,
     RoomComponent,
     PerDayPipe,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    RoomAddComponent,
+    RoomUpdateComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +37,10 @@ import { BookRoutingModule } from './book-routing.module';
     MatCardModule,
     MatButtonModule,
     MatPaginatorModule,
-    BookRoutingModule
+    BookRoutingModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ]
 })
 export class BookModule { }

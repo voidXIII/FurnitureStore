@@ -1,9 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { BookParams } from '../models/bookParams';
 import { IRoom } from '../models/room';
 import { IRoomType } from '../models/roomType';
 import { BookService } from '../services/book.service';
+import { RoomAddComponent } from './room-add/room-add.component';
 
 @Component({
   selector: 'app-book',
@@ -22,7 +24,7 @@ export class BookComponent implements OnInit {
     {name: 'Price: High to Low', value: 'priceDesc'}
   ];
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.GetProducts();
@@ -72,6 +74,10 @@ export class BookComponent implements OnInit {
     this.searchTerm.nativeElement.value = '';
     this.bookParams = new BookParams();
     this.GetProducts();
+  }
+
+  addRoom(){
+    this.dialog.open(RoomAddComponent);
   }
 
 }

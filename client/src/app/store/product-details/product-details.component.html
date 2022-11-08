@@ -1,0 +1,28 @@
+<div *ngIf="product" class="container">
+    <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>{{product.topology}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-grid-list cols="2" rowsHeight="2:1">
+          <mat-grid-tile>
+            <img mat-card-image src="{{product.imageUrl}}" alt="{{product.productName}}">
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card-content>
+              <h1 style="color:brown;">{{product.price | currency}}</h1>
+            <p>{{product.description}}</p>
+              
+          </mat-card-content>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-card-actions>
+          <button (click)="addItemToBasket()" mat-button>Reserve</button>
+          <button mat-stroked-button color="primary" (click)="updateProduct(product)">Update Product</button>
+          <button mat-stroked-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+
+        </mat-card-actions>
+      </mat-card>
+      
+</div>

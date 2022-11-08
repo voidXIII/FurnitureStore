@@ -12,13 +12,13 @@
                                 <thead>
                                     <tr>
                                         <th class="border-0 bg-light" scope="col">
-                                            <div class="p-2 px-3 text-uppercase">Room</div>
+                                            <div class="p-2 px-3 text-uppercase">Product</div>
                                         </th>
                                         <th class="border-0 bg-light" scope="col">
                                             <div class="py-2 text-uppercase">Price</div>
                                         </th>
                                         <th class="border-0 bg-light" scope="col">
-                                            <div class="py-2 text-uppercase">Nights</div>
+                                            <div class="py-2 text-uppercase">Quantity</div>
                                         </th>
                                         <th class="border-0 bg-light" scope="col">
                                             <div class="py-2 text-uppercase">Total</div>
@@ -32,11 +32,11 @@
                                     <tr *ngFor="let item of (basket$ | async).items">
                                     <th scope="row">
                                         <div class="p-2">
-                                            <img src="{{item.roomPictureUrl}}" alt="{{item.roomName}}" class="img-fluid" style="max-height: 50px">
+                                            <img src="{{item.imageUrl}}" alt="{{item.productName}}" class="img-fluid" style="max-height: 50px">
                                             <div class="ms-3 d-inline-block align-middle">
                                                 <h5 class="mb-0">
-                                                    <a routerLink="/shop/{{item.id}}" class="text-dark">{{item.roomName}}</a>
-                                                    <span class="text-muted font-weight-normal font-italic d-block">Type: {{item.type}}</span>
+                                                    <a routerLink="/store/{{item.id}}" class="text-dark">{{item.productName}}</a>
+                                                    <span class="text-muted font-weight-normal font-italic d-block">Topology: {{item.topology}}</span>
                                                 </h5>
                                             </div>
                                         </div>

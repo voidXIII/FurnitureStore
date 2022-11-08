@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'test-error', component: TestErrorComponent},
   { path: 'server-error', component: ServerErrorComponent},
   { path: 'not-found', component: NotFoundComponent},
-  { path: 'book', loadChildren: () => import('./book/book.module').then(mod => mod.BookModule) },
+  { path: 'store', loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule) },
   { path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule) },
   { path: 'checkout',
     canActivate: [AuthGuard],

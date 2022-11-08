@@ -21,7 +21,7 @@ namespace API
         {
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
-            services.AddDbContext<HotelContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<FurnitureStoreContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppIdentityDbContext>(x =>x.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
             services.AddApplicationServices();
             services.AddIdentityServices(_config);

@@ -9,84 +9,94 @@ using API.Services;
 
 namespace Application.Services
 {
-    public class RoomService : IRoomService
+    public class ProductService : IProductService
     {
-        private readonly IRepository<Room> _roomRepo;
-        private readonly IRepository<RoomType> _roomTypeRepo;
+        private readonly IRepository<Product> _productRepo;
+        private readonly IRepository<Function> _functionRepo;
+        private readonly IRepository<Topology> _topologyRepo;
+
         private readonly IMapper _mapper;
-        public RoomService(IRepository<Room> roomRepo, IRepository<RoomType> roomTypeRepo, IMapper mapper)
+        public ProductService(IRepository<Product> productRepo, IRepository<Function> functionRepo, IMapper mapper,
+            IRepository<Topology> topologyRepo)
         {
             _mapper = mapper;
-            _roomRepo = roomRepo;
-            _roomTypeRepo = roomTypeRepo;
+            _productRepo = productRepo;
+            _functionRepo = functionRepo;
+            _topologyRepo = topologyRepo;
         }
-        public async Task<RoomToReturnDto> CreateRoomAsync(RoomToCreateDto roomToCreate)
+        public async Task<ProductToReturnDto> CreateProductAsync(ProductToCreateDto productToCreate)
         {
-            var room = new Room
+            var product = new Product
             {
-                RoomNumber = roomToCreate.RoomNumber,
-                RoomName = roomToCreate.RoomName,
-                RoomMainImageUrl = roomToCreate.RoomMainImageUrl,
-                RoomPrice = roomToCreate.RoomPrice,
-                BookingStatusId = roomToCreate.BookingStatusId,
-                RoomTypeId = roomToCreate.RoomTypeId,
-                RoomCapacity = roomToCreate.RoomCapacity,
-                RoomDescription = roomToCreate.RoomDescription
+                Model = productToCreate.Model,
+                ProductName = productToCreate.ProductName,
+                ImageUrl = productToCreate.ImageUrl,
+                Price = productToCreate.Price,
+                TopologyId = productToCreate.TopologyId,
+                FunctionId = productToCreate.FunctionId,
+                Dimensions = productToCreate.Dimensions,
+                Description = productToCreate.Description
             };
 
-            var roomToUpload = _mapper.Map(roomToCreate, room);
-            _roomRepo.Add(roomToUpload);
-            await _roomRepo.SaveChangesAsync();
-            return _mapper.Map<RoomToReturnDto>(roomToUpload);
+            var productToUpload = _mapper.Map(productToCreate, product);
+            _productRepo.Add(productToUpload);
+            await _productRepo.SaveChangesAsync();
+            return _mapper.Map<ProductToReturnDto>(productToUpload);
         }
 
-        public async Task DeleteRoomAsync(int id)
+        public async Task DeleteProductAsync(int id)
         {
-            var room = await _roomRepo.GetByIdAsync(id);
+            var product = await _productRepo.GetByIdAsync(id);
 
-            if(room == null)
+            if(product == null)
             {
-                throw EntityNotFoundException.OfType<Room>(id);
+                throw EntityNotFoundException.OfType<Product>(id);
             }
-            await _roomRepo.DeleteAsync(id);
-            await _roomRepo.SaveChangesAsync();
+            await _productRepo.DeleteAsync(id);
+            await _productRepo.SaveChangesAsync();
         }
 
-        public async Task<Pagination<RoomToReturnDto>> GetRoomsAsync(ParamsSpecification paramsSpec)
+        public async Task<Pagination<ProductToReturnDto>> GetProductsAsync(ParamsSpecification paramsSpec)
         {
-            var spec = new RoomsWithTypesAndBookingStatusesSpecification(paramsSpec);
-            var countSpec = new RoomWithFiltersForCountSpecification(paramsSpec);
-            var rooms = await _roomRepo.ListAsync(spec);
-            var totalCount = await _roomRepo.CountAsync(countSpec);
-            var dataToReturn = _mapper.Map<IReadOnlyList<RoomToReturnDto>>(rooms);
-            return new Pagination<RoomToReturnDto>(paramsSpec.PageIndex, paramsSpec.PageSize, totalCount, dataToReturn);
+            var spec = new ProductsWithTopologiesAndFunctionsSpecification(paramsSpec);
+            var countSpec = new ProductWithFiltersForCountSpecification(paramsSpec);
+            var products = await _productRepo.ListAsync(spec);
+            var totalCount = await _productRepo.CountAsync(countSpec);
+            var dataToReturn = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
+            return new Pagination<ProductToReturnDto>(paramsSpec.PageIndex, paramsSpec.PageSize, totalCount, dataToReturn);
         }
 
-        public async Task<RoomToReturnDto> GetRoomWithSpecAsync(int id)
+        public async Task<ProductToReturnDto> GetProductWithSpecAsync(int id)
         {
-            var spec = new RoomsWithTypesAndBookingStatusesSpecification(id);
-            var room = await _roomRepo.GetEntityWithSpec(spec);
-            if(room == null)
+            var spec = new ProductsWithTopologiesAndFunctionsSpecification(id);
+            var product = await _productRepo.GetEntityWithSpec(spec);
+            if(product == null)
             {
-                throw EntityNotFoundException.OfType<Room>(id);
+                throw EntityNotFoundException.OfType<Product>(id);
             }
-            return _mapper.Map<RoomToReturnDto>(room);
+            return _mapper.Map<ProductToReturnDto>(product);
         }
 
-        public async Task UpdateRoomAsync(int id, RoomToUpdateDto roomToUpdate)
+        public async Task UpdateProductAsync(int id, ProductToUpdateDto productToUpdate)
         {
-            var room = await _roomRepo.GetByIdAsync(id);
-            if(room == null)
+            var product = await _productRepo.GetByIdAsync(id);
+            if(product == null)
             {
-                throw EntityNotFoundException.OfType<Room>(id);
+                throw EntityNotFoundException.OfType<Product>(id);
             }
-            var dataToUpdate = _mapper.Map(roomToUpdate, room);
-            _roomRepo.Update(dataToUpdate);
-            await _roomRepo.SaveChangesAsync();
+            var dataToUpdate = _mapper.Map(productToUpdate, product);
+            _productRepo.Update(dataToUpdate);
+            await _productRepo.SaveChangesAsync();
         }
 
-        public async Task<IReadOnlyList<RoomType>> GetAllTypes(){
-            return await _roomTypeRepo.ListAllAsync();
+        public async Task<IReadOnlyList<Function>> GetAllFunctions()
+        {
+            return await _functionRepo.ListAllAsync();
+        }
+
+        public async Task<IReadOnlyList<Topology>> GetAllTopologies()
+        {
+            return await _topologyRepo.ListAllAsync();
         }
     }
 }

@@ -17,9 +17,9 @@ namespace API
                 var loggerFactory = services.GetRequiredService<ILoggerFactory>();
                 try
                 {
-                    var context = services.GetRequiredService<HotelContext>();
+                    var context = services.GetRequiredService<FurnitureStoreContext>();
                     await context.Database.MigrateAsync();
-                    await HotelContextSeed.SeedAsync(context, loggerFactory);
+                    await FurnitureStoreSeed.SeedAsync(context, loggerFactory);
 
                     var userManager = services.GetRequiredService<UserManager<AppUser>>();
                     var identityContext = services.GetRequiredService<AppIdentityDbContext>();

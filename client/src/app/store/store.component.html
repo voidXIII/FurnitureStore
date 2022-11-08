@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="content">
+    
+        <section class="side-bar">
+            <ng-container *ngIf="topologies && functions">
+            <mat-form-field class="sort-select" appearance="standard">
+                <mat-label>Sort</mat-label>
+                <mat-select (change)="OnSortSelected($event.target.value)">
+                    <mat-option *ngFor="let sort of sortOptions" [value]="sort.value"
+                        (click)="OnSortSelected(sort.value)">{{sort.name}}
+                    </mat-option>
+
+                </mat-select>
+            </mat-form-field>
+
+
+            <h5 class="filter-title" style="font-size:large">by Topology</h5>
+            <mat-selection-list class="filters" [multiple]="false">
+                <mat-list-option *ngFor="let item of topologies" [value]="item.id" (click)="OnTopologySelected(item.id)">
+                    {{item.topologyTitle}}
+                </mat-list-option>
+            </mat-selection-list>
+            <h5 class="filter-title" style="font-size:large">by Function</h5>
+            <mat-selection-list class="filters" [multiple]="false">
+                <mat-list-option *ngFor="let item of functions" [value]="item.id" (click)="OnFunctionSelected(item.id)">
+                    {{item.functionTitle}}
+                </mat-list-option>
+            </mat-selection-list>
+        </ng-container>
+        </section>
+
+        <section class="products">
+            <div class="search-elem" *ngIf="products">
+                <app-paging-header [totalCount]="totalCount" [pageSize]="this.storeParams.pageSize"
+                    [pageNumber]="this.storeParams.pageNumber"></app-paging-header>
+                <div class="search-buttons" *ngIf="products">
+                    <input (keyup.enter)="OnSearch()" type="text" class="search-form" #search style="width:300px"
+                        placeholder="Search">
+                    <button mat-stroked-button color="primary" (click)="OnSearch()" class="search">Search</button>
+                    <button mat-stroked-button color="warn" (click)="OnReset()" class="reset">Reset</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-4 mb-4" *ngFor="let product of products">
+                    <app-product [product]="product"></app-product>
+                </div>
+            </div>
+            <div class="search" *ngIf="products">
+            <button mat-stroked-button color="primary" (click)="addProduct()">AddProduct</button>
+            </div>
+            <div class="paginator" *ngIf="products">
+                <mat-paginator
+                    [pageSize]="storeParams.pageSize"
+                    [length]="totalCount"
+                    [pageIndex]="storeParams.pageNumber"
+                    (page)="OnPageChanged($event)"
+                    showFirstLastButtons
+                    hidePageSize
+                  ></mat-paginator>
+            </div>
+            
+        </section>
+    </div>
+</div>

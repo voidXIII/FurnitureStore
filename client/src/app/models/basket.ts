@@ -7,11 +7,11 @@ export interface IBasket {
   
   export interface IBasketItem {
     id: number
-    roomName: string
+    productName: string
     price: number
     quantity: number
-    roomPictureUrl: string
-    type: string
+    imageUrl: string
+    topology: string
   }
 
   export class Basket implements IBasket{

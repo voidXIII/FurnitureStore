@@ -11,8 +11,8 @@ namespace Infrastructure.Data
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly HotelContext _context;
-        public Repository(HotelContext context)
+        private readonly FurnitureStoreContext _context;
+        public Repository(FurnitureStoreContext context)
         {
             _context = context;
         }

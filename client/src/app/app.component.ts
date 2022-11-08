@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRoom } from './models/room';
+import { IProduct } from './models/product';
 import { AccountService } from './services/account.service';
 import { BasketService } from './services/basket.service';
 
@@ -9,7 +9,7 @@ import { BasketService } from './services/basket.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'HotelBookingService';
+  title = 'FurnitureStore';
 
   constructor(private basketService: BasketService, private accountService: AccountService) {}
 

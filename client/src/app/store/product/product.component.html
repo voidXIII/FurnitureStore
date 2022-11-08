@@ -1,0 +1,13 @@
+<mat-card>
+  <img src="{{product.imageUrl}}" alt="{{product.productName}}" class="img-fluid">
+  <a routerLink="/store/{{product.id}}">
+    <mat-card-title>{{product.productName}}</mat-card-title>
+  </a>
+  <mat-card-content>
+    <span>{{product.price | currency}}</span>
+  </mat-card-content>
+  <mat-card-actions class="button">
+    <button routerLink="/store/{{product.id}}" mat-button>VIEW</button>
+  </mat-card-actions>
+</mat-card>
+

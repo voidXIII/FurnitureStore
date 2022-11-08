@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 130px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side-bar {
+    margin-top: 2rem;
+    flex: 0 0 auto;
+    width: 24%;
+    margin-right: 5px;
+}
+
+.products {
+    flex: 0 0 auto;
+    width: 75%;
+}
+
+.filter-title {
+    margin: 0.5rem;
+    padding-left: 1rem;
+}
+
+
+.sort-select {
+    width: 95%;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    display: block;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+}
+
+.filters {
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    padding-top: 0;
+}
+
+.search-elem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem
+}
+
+.search-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search{
+    margin-right: 0.25rem;
+}
+.reset{
+    margin-right: 0.5rem;
+}
+
+.search-form{
+    display: block;
+    width: 100%;
+    padding: 0.3rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-right: 0.5rem
+}
+
+mat-list-option {
+    border: 1px solid #ced4da;
+    border-radius: 0.75rem;
+}
+
+mat-list-option:hover {
+    background-color: lightblue;
+    border-radius: 0.75rem;
+}
+
+mat-list-option:focus-within {
+    background-color: lightblue;
+    border-radius: 0.75rem;
+}
+
+
+app-paging-header{
+    margin-left: 1rem;
+}
+
+.paginator{
+    display: flex;
+    justify-content: center;
+}
+
+

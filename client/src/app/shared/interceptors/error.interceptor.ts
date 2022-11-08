@@ -7,7 +7,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, delay } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 import { NavigationExtras, Router } from '@angular/router';
 
 @Injectable()

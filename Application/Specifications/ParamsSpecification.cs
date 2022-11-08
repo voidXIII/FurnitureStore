@@ -16,8 +16,8 @@ namespace Application.Specifications
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
 
-        public int? StatusId { get; set; }
-        public int? TypeId { get; set; }
+        public int? TopologyId { get; set; }
+        public int? FunctionId { get; set; }
         public string Sort { get; set; }
         public string Search { get; set; }
     }

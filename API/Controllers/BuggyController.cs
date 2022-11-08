@@ -7,8 +7,8 @@ namespace API.Controllers
 {
     public class BuggyController : BaseApiController
     {
-        private readonly HotelContext _context;
-        public BuggyController(HotelContext context)
+        private readonly FurnitureStoreContext _context;
+        public BuggyController(FurnitureStoreContext context)
         {
             _context = context;
 
@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpGet("notfound")]
         public ActionResult GetNotFoundRequest()
         {
-            var thing = _context.Rooms.Find(30);
+            var thing = _context.Products.Find(30);
             if (thing == null)
             {
                 return NotFound(new ApiResponse(404));
@@ -35,7 +35,7 @@ namespace API.Controllers
         [HttpGet("servererror")]
         public ActionResult GetServerError()
         {
-            var thing = _context.Rooms.Find(30);
+            var thing = _context.Products.Find(30);
             var thingToReturn = thing.ToString();
             return Ok();
         }

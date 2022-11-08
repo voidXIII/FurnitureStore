@@ -11,12 +11,13 @@ namespace Application.Helpers
     {
         public MappingProfiles()
         {
-            CreateMap<Room, RoomToReturnDto>()
-                .ForMember(d => d.BookingStatus, o => o.MapFrom(s => s.BookingStatus.BookingStatusTitle))
-                .ForMember(d => d.RoomType, o => o.MapFrom(s => s.RoomType.RoomTypeName));
-            CreateMap<RoomToCreateDto, Room>();
-            CreateMap<RoomToUpdateDto, Room>();
-            CreateMap<RoomType, RoomTypeToReturnDto>();
+            CreateMap<Product, ProductToReturnDto>()
+                .ForMember(d => d.Topology, o => o.MapFrom(s => s.Topology.TopologyTitle))
+                .ForMember(d => d.Function, o => o.MapFrom(s => s.Function.FunctionTitle));
+            CreateMap<ProductToCreateDto, Product>();
+            CreateMap<ProductToUpdateDto, Product>();
+            CreateMap<Topology, ProductTopologyToReturnDto>();
+            CreateMap<Function, ProductFunctionToReturnDto>();
             CreateMap<CustomerBasket, CustomerBasketToReturnDto>().ReverseMap();
             CreateMap<CustomerBasketCreateOrUpdateDTO, CustomerBasket>();
             CreateMap<BasketItem, CustomerBasketItemsToReturnDto>().ReverseMap();

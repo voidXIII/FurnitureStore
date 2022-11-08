@@ -1,0 +1,453 @@
+[
+    {
+        "Model":  "8434AITG",
+        "ProductName": "Core Armchair",
+        "ImageUrl":  "https://localhost:5001/images/products/core-armchair-anthracite.jpg",
+        "Price": 780,
+        "TopologyId": 1,
+        "FunctionId": 1,
+        "Dimensions": "W: 60cm x D: 63cm x H: 83cm",
+        "Description": "Core armchair is a timeless design, made of durable materials that has a long lifespan. Due to the modern and simple design, the chair fits in most places. The uniqueness of this series is that none of the furniture needs cushions as they are made from the soft and strong Cane-line AirTouch fabric, which is easy to clean and requires only a minimal of maintenance. The frame of the Core chair is made of weather resistant powder coated aluminium so that it can be used inside as well as outside. The chair is stackable and easy to store."
+    },
+    {
+        "Model":  "5417RODG",
+        "ProductName": "Ocean Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/5417RODG.jpg",
+        "Price": 550,
+        "TopologyId": 1,
+        "FunctionId": 1,
+        "Dimensions": "W: 57cm x D: 60cm x H: 76cm",
+        "Description": "Designed by the Cane-line design team, Ocean is a combination of a modern design and the traditional craftsmanship. Ocean is elegantly designed in strong Cane-line Soft Rope, aluminum frame, and with an incredibly soft and comfortable cushion in Cane-line Natté or Cane-line Wove. The lightweight frame and the transparent expression provide a very light look, together with the soft seat and back cushion, Ocean offers both unique comfort and a visually beautiful aesthetic."
+    },
+    {
+        "Model":  "57438RODGAL",
+        "ProductName": "Noble Armchair",
+        "ImageUrl":  "https://localhost:5001/images/products/57438RODGAL.jpg",
+        "Price": 470,
+        "TopologyId": 1,
+        "FunctionId": 1,
+        "Dimensions": "W: 59cm x D: 59cm x H: 78cm",
+        "Description": "Noble is a modern and aesthetically pleasing chair designed by the Danish design duo byKATO. Noble’s traditional craftsmanship is reflected in the woven seat and the soft lines of the frame. An elegant and comfortable chair that adds character to any modern outdoor space. The Noble chair’s strong aluminium frame is offset by a beautiful weave of sturdy Cane-line Soft Rope on the seat, back and armrests."
+    },
+    {
+        "Model":  "5410LS",
+        "ProductName": "Lean Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/Lean_chair_white.jpg",
+        "Price": 395,
+        "TopologyId": 1,
+        "FunctionId": 1,
+        "Dimensions": "W: 59cm x D: 59cm x H: 80cm",
+        "Description": "Lean is a modern and elegant chair in a stringent, modern design with a high comfort. It is designed by designduo Welling/Ludvik, known for pure aesthetic and letting each detail serve a functional purpose. Lean is manufactured in Cane-line Weave and is stackable.The colour options are timeless and always modern."
+    },
+    {
+        "Model":  "7440ROG",
+        "ProductName": "Moments Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/7440ROG_7440YN107.jpg",
+        "Price": 675,
+        "TopologyId": 1,
+        "FunctionId": 1,
+        "Dimensions": "W: 57cm x D: 57cm x H: 76cm",
+        "Description": "The elegant Moments armchair is designed by the Danish design duo Foersom & Hiort-Lorenzen MDD. Moments consists of a strong steel frame and a seat handwoven in soft and weatherproof Cane-line Soft Rope. The seat has an impressive and transparent design expression, which is beautiful to look at from any angle. Moments armchair oozes of Nordic clean lines and Scandinavian design at its best. A stylish armchair for the modern outdoor space. The cushions are produced in soft Cane-line fabrics."
+    },
+    {
+        "Model":  "5448LW",
+        "ProductName": "Kingston Sunchair",
+        "ImageUrl":  "https://localhost:5001/images/products/Kingston_sunchair_white-grey.jpg",
+        "Price": 1995,
+        "TopologyId": 2,
+        "FunctionId": 1,
+        "Dimensions": "W: 92cm x D: 102cm x H: 98cm",
+        "Description": "The Kingston sunchair is a very special experience. The sunchair is a beautiful and sculptural piece of furniture to look at and extremely comfortable to sit in. Attention is gathered around the beautiful back, which both breaks the wind but also captures the rays of the sun. Comfort is a high priority, and when the sunchair is combined with the matching footstool, you can put your legs up and enjoy hours of pure relaxation. This version comes with wheels that makes it easy to move around the patio."
+    },
+    {
+        "Model":  "8432AITG",
+        "ProductName": "Traveller Folding Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/Traveller_foldingchair_SoftTouch.jpg",
+        "Price": 950,
+        "TopologyId": 2,
+        "FunctionId": 1,
+        "Dimensions": "W: 61cm x D: 72cm x H: 68cm",
+        "Description": "The Traveller folding chair marks a significant trend towards more flexible furniture. Furniture, which does not dictate a specific area of use through its design, but can be placed both inside and out. The Traveller is build around an aluminium lightweight frame that folds easily. Just as functional is the quilted seat and back of Cane-line AirTouch and QuickDry® Foam, making cushions obsolete. This folding chair is great for urban areas where space could be limited; a rooftop or balcony or take it along to the park or beach."
+    },
+    {
+        "Model":  "5458RODG",
+        "ProductName": "Peacock Rocking Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/5458RODGTRC_5458YN111.jpg",
+        "Price": 3615,
+        "TopologyId": 2,
+        "FunctionId": 1,
+        "Dimensions": "W: 88cm x D: 88cm x H: 88cm",
+        "Description": "Peacock rocking chair is designed by Foersom & Hiort-Lorenzen MDD. It is our popular Peacock lounge chair with a rocking feature. The rocking legs are made from teak and the cosy seat is weaved in Cane-line Soft Rope. A unique combination of the warm teak and the soft and cosy weave which will cuddle around you. The weave is made by hand and the material is Cane-line Soft Rope and adds optimal comfort to the chair and is ideal for outdoor use in any climate. The rocking base is made in Grade A teak, which is the highest quality of teak."
+    },
+    {
+        "Model":  "11428AL",
+        "ProductName": "Copenhagen Rocking Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/11428al.jpg",
+        "Price": 1315,
+        "TopologyId": 2,
+        "FunctionId": 1,
+        "Dimensions": "W: 72cm x D: 88cm x H: 76cm",
+        "Description": "The Copenhagen rocking chair is a modern interpretation of the traditional rocking chair. The design is both minimalist and functional and can be used either alone or in combination with other Cane-line lounge furniture. The rocking chair is made of powder coated aluminium and can be used both inside and outside. The seat and back are perforated with grooves to add transparency and to allow rainwater to drain from the seat when used outside. The rocking chair requires minimal of maintenance and cleaning."
+    },
+    {
+        "Model":  "11468TAL",
+        "ProductName": "Parc Rocking Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/Parc_rockingchair_lavagrey.jpg",
+        "Price": 1295,
+        "TopologyId": 2,
+        "FunctionId": 1,
+        "Dimensions": "W: 63cm x D: 78cm x H: 75cm",
+        "Description": "Parc rocking chair is a refined and exclusive chair of design furniture in teak designed by the Danish designduo Foersom & Hiort-Lorenzen MDD. The chair is bodyfitted so it follows the shape of the body and gives an extremely high comfort. The Parc series is suitable for both small as well as large outdoor spaces due to its different design options, from bench to rocking chair. Parc will fit any space due to its choice of natural material and its exclusive design."
+    },
+    {
+        "Model":  "57421USL",
+        "ProductName": "Nest Lounge Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/57421USL_57421YSN96.jpg",
+        "Price": 2415,
+        "TopologyId": 3,
+        "FunctionId": 1,
+        "Dimensions": "W: 90cm x D: 80cm x H: 74cm",
+        "Description": "Nest lounge chair is designed by Foersom & Hiort-Lorenzen MDD. Nest lounge chair is classic Danish design at its best - simple, comfortable and high quality. Nest is made from the durable material Cane-line Weave® on a strong aluminum frame, which together creates a timeless and durable furniture."
+    },
+    {
+        "Model":  "54200UA",
+        "ProductName": "Basket Lounge Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/54200UAITT.jpg",
+        "Price": 4175,
+        "TopologyId": 3,
+        "FunctionId": 1,
+        "Dimensions": "W: 110cm x D: 100cm x H: 70cm",
+        "Description": "The supremely comfortable Basket lounge chair is designed by Søren Rose Studio. Basket’s design draws inspiration from classic wicker furniture, but with Cane-line’s sturdy materials it can be safely used in the garden. With its powder coated steel frame and sturdy weatherproof Cane-line Weave® in a rattan-like colour, the Basket lounge chair offers an inviting natural appearance. The cushions feature the Cane-line QuickDry & Airflow system, providing excellent comfort while ensuring that the lounge chair dries quickly after a downpour."
+    },
+    {
+        "Model":  "54010ROD",
+        "ProductName": "Angle Lounge Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/54010RODGAITLT.jpg",
+        "Price": 4930,
+        "TopologyId": 3,
+        "FunctionId": 1,
+        "Dimensions": "W: 80cm x D: 85cm x H: 74cm",
+        "Description": "Angle is an exclusive lounge chair by Danish design duo Foersom & Hiort-Lorenzen MDD who are renowned for their attention to detail and optimum comfort. The distinctive lounge chair frame is made from the finest teak on the market. The pattern on the sides is hand-weaved in Cane-line Soft Rope. The combination of the warm teak frame and the soft Cane-line Soft Rope provides a refined exclusive look. Cane-line’s popular QuickDry & Airflow system helps to ensure that the cushions dry quickly after a downpour."
+    },
+    {
+        "Model":  "5470ALA",
+        "ProductName": "Encore Lounge Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/5470ALAIG.jpg",
+        "Price": 3160,
+        "TopologyId": 3,
+        "FunctionId": 1,
+        "Dimensions": "W: 71cm x D: 91cm x H: 78cm",
+        "Description": "Encore lounge chair is a modern and classic design in elegant weave, which fits most outdoor environments with its timeless expression. Encore is manufactured with Cane-line Soft Rope and Cane-line AirTouch cushions with QuickDryFoam®. Cane-line QuickDry & Airflow system is a special technique that increases the comfort of the furniture. About one hour after a rainfall, the cushions are dry again and ready to use."
+    },
+    {
+        "Model":  "8437AITL",
+        "ProductName": "Conic Lounge Chair",
+        "ImageUrl":  "https://localhost:5001/images/products/8437AITL.jpg",
+        "Price": 3295,
+        "TopologyId": 3,
+        "FunctionId": 1,
+        "Dimensions": "W: 78cm x D: 82cm x H: 78cm",
+        "Description": "The Conic lounge chair has a very harmonious and timeless design, which is extremely comfortable. The lounge chair can be used alone on the terrace, but also as part of a Conic lounge group. The cushions are in the weatherproof Cane-line AirTouch fabric with QuickDryFoam®. The QuickDryFoam® allows the cushions to dry quickly after a downpour. The lounge chair requires minimal maintenance and cleaning. Sit down and enjoy a cup of coffee in the afternoon sun in a Conic lounge chair."
+    },
+    {
+        "Model":  "5085AI",
+        "ProductName": "Pure Dining Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5085AI_P091CA.jpg",
+        "Price": 4170,
+        "TopologyId": 1,
+        "FunctionId": 2,
+        "Dimensions": "W: 200cm x D: 100cm x H: 73cm",
+        "Description": "The minimalist Pure table is designed by the Danish designer duo Foersom & Hiort-Lorenzen MDD. The tabletop / tiles are made of ceramic, and the simple, clean-lined frame is offered in powder-coated aluminium. A 100% natural product, the tabletop is available in concrete grey ceramic, basalt, graphite or as a tile version in a mottled graphite. The combination makes for a light, almost floating design. The Pure table is easy to maintain, scratch-resistant and can be wiped over with a damp cloth."
+    },
+    {
+        "Model":  "50202AI",
+        "ProductName": "Joy Dining Table",
+        "ImageUrl":  "https://localhost:5001/images/products/50202AI_P144COG.jpg",
+        "Price": 5645,
+        "TopologyId": 1,
+        "FunctionId": 2,
+        "Dimensions": "D: 110cm x H: 72cm",
+        "Description": "Joy is the combination of elegant clean lines, and an impeccable design language. The Joy series offers a collection of stylish dining tables for your outdoor space. The tablebase of Joy gives the series its unique expression, which with conical aluminum table legs and its curved shape contribute to an aesthetic and minimalistic look. The tables within the series come in both a round and a rectangular version, and in a darker and lighter colour."
+    },
+    {
+        "Model":  "11010AL",
+        "ProductName": "Area Dining Table",
+        "ImageUrl":  "https://localhost:5001/images/products/11010AL.jpg",
+        "Price": 1630,
+        "TopologyId": 1,
+        "FunctionId": 2,
+        "Dimensions": "D: 110cm x H: 73cm",
+        "Description": "The Area table is an elegant round aluminium dining table with a diameter of 110 cm. The Area dining table offers a minimalist functional design without unnecessary details. The table is the perfect companion to any dining chair and blends in perfectly with both modern and classic dining chairs, whether they are in aluminium, fabric or teak. Area is with its powder-coated solid aluminium surface easy to maintain. Gather your close ones around the Area table and enjoy warm summer evenings on the patio."
+    },
+    {
+        "Model":  "5072T",
+        "ProductName": "Endless Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5072T.jpg",
+        "Price": 5940,
+        "TopologyId": 1,
+        "FunctionId": 2,
+        "Dimensions": "D: 170cm x H: 74cm",
+        "Description": "Endless is a beautiful range of certified teak tables designed by Foersom & Hiort-Lorenzen MDD. The table is made of rows of teak planks, providing an endless look. The design of the Endless table is timeless with the warmth of the teak wood, ensuring a durable and classic table. The massive wooden planks provide a solid and refined look, with beautiful endings and a smooth surface. Endless is a table which can match different needs, as the table is designed both as a rectangular and a round table in various sizes."
+    },
+    {
+        "Model":  "50802T",
+        "ProductName": "Aspect Dining Table",
+        "ImageUrl":  "https://localhost:5001/images/products/50802T_P210X100RCCOLT.jpg",
+        "Price": 7600,
+        "TopologyId": 1,
+        "FunctionId": 2,
+        "Dimensions": "W: 210cm x D: 100cm x H: 74cm",
+        "Description": "Aspect 210x100 cm. is a table of an outstanding quality, in durable and elegant materials. Aspect combines the glow and warmth of the teak, with clean and solid ceramics. Aspect is designed by the Cane-line design team, focusing on creating a unique range of tables that can match the growing collection of high-end chairs for the outdoor space. Aspect is made with a teak frame, a solid aluminium core and a stylish ceramic table top. Cane-line teak is approved and cultivated according to SVLK certification system."
+    },
+    {
+        "Model":  "5066AW",
+        "ProductName": "On-the-move Side Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5066AW.jpg",
+        "Price": 555,
+        "TopologyId": 2,
+        "FunctionId": 2,
+        "Dimensions": "D: 52cm x H: 60cm",
+        "Description": "This lightweight and elegant side table is the result of an exciting design process with the designers Strand + Hvass. The goal of the side table was to create a modern, stylish and functional side table. On-the-move side table is equipped with a handle so you easily can move the table around as needed. On-the-move countertop is a removable plate that can transform the table from a beautiful side table into a convenient serving tray in no time. The table is made of aluminium and requires minimal maintenance and cleaning."
+    },
+    {
+        "Model":  "5025AW",
+        "ProductName": "Time-out Side Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5025AW.jpg",
+        "Price": 440,
+        "TopologyId": 2,
+        "FunctionId": 2,
+        "Dimensions": "W: 35cm x D: 35cm x H: 54cm",
+        "Description": "The Time-out, small side table adds a whole new dimension to the traditional coffee table. The functional and practical table allows for maximum comfort as the table slides over your lounge seat and brings everything closer, without the need to reach out for it. The table is flexible and can accompany you wherever you go. The Time-out small side table is designed by Strand+Hvass. The elegant design makes the Time-out, small side table the perfect match for any style – both indoors and outdoors."
+    },
+    {
+        "Model":  "5064LS",
+        "ProductName": "Breeze Side Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5064LS.jpg",
+        "Price": 515,
+        "TopologyId": 2,
+        "FunctionId": 2,
+        "Dimensions": "W: 50cm x D: 50cm x H: 50cm",
+        "Description": "The small Breeze side table fits perfectly with both the Breeze lounge chair and the Breeze highback chair. The table is manufactured in Cane-line Weave®, which requires a minimum of maintenance and cleaning. It is made with the purpose of being able to stand outside all year and has a high lightfastness. The small table is perfect for a cup of hot tea while reading a good book."
+    },
+    {
+        "Model":  "53200G",
+        "ProductName": "Basket Side Table",
+        "ImageUrl":  "https://localhost:5001/images/products/53200G_P45COB.jpg",
+        "Price": 1500,
+        "TopologyId": 2,
+        "FunctionId": 2,
+        "Dimensions": "D: 50cm x H: 45cm",
+        "Description": "Basket side table is designed in collaboration with Søren Rose Studio. A coffee table inspired by the nature with its round shapes providing an organic design expression. Basket coffee table is manufactured in the durable Cane-line Weave® on a hot-dip galvanized steel frame with an elegant ceramic tabletop. The combination of soft curves and edgy ceramic tabletop creates an eye-catching and refined look for your outdoor lounge area. The Basket coffee tables are available in three sizes, which complement each other beautifully."
+    },
+    {
+        "Model":  "50020TAL",
+        "ProductName": "Mega Side Table",
+        "ImageUrl":  "https://localhost:5001/images/products/50020TAL_1.jpg",
+        "Price": 775,
+        "TopologyId": 2,
+        "FunctionId": 2,
+        "Dimensions": "W: 30cm x D: 37cm x H: 50cm",
+        "Description": "Mega is a small practical side table that fits perfectly with a wide variety of our sofas. A sleek and elegant design from the byKATO design duo. Mega acts as an insert table where the leg can be pushed under the sofa to leave you with a small practical table close to hand. With its solid steel frame and warm teak top, Mega is both highly stable and easy to move around. The contrast between the warm teak and the raw steel frame gives it a minimalistic urban look that fits perfectly into the modern outdoor space."
+    },
+    {
+        "Model":  "5009AW",
+        "ProductName": "Level Lounge Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5009AW_P5009TII.jpg",
+        "Price": 1780,
+        "TopologyId": 3,
+        "FunctionId": 2,
+        "Dimensions": "W: 122cm x D: 62cm x H: 42cm",
+        "Description": "Level is a minimalistic and timeless table designed by the design duo ByKATO. Level is available as a side table or a coffee table. As the name Level indicates, the table has more than one level, so it can be used as a table but at the same time it also offers the possibility for storage or decoration at the lower table top. Level is available in a frame in lava grey or white powder coated aluminium and with a certified teak or a concrete table top. Cane-line teak is approved and cultivated according to SVLK certification system."
+    },
+    {
+        "Model":  "5017AL",
+        "ProductName": "Twist Lounge Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5017AL_P120X60COTL.jpg",
+        "Price": 2120,
+        "TopologyId": 3,
+        "FunctionId": 2,
+        "Dimensions": "W: 93cm x D: 53cm x H: 42cm",
+        "Description": "Twist is an elegant, decorative and practical coffee table for indoor and outdoor use. The coffee table is designed by the byKATO design duo, who are known for their modern and detailed design and high-quality craftsmanship. The Twist table is the perfect addition to the lounge area. Made using a lightweight frame in powder-coated aluminium, Twist is available with various tabletops and can easily be cleaned using a damp cloth."
+    },
+    {
+        "Model":  "5024AL",
+        "ProductName": "Chill-out Lounge Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5024AL-1.jpg",
+        "Price": 2155,
+        "TopologyId": 3,
+        "FunctionId": 2,
+        "Dimensions": "W: 104cm x D: 90cm x H: 40cm",
+        "Description": "Chill-out coffee table is a modern and simple design that suits most homes and gardens. With its adjustable height, the table can be used both as a coffee table, or be upgraded to a comfortable dining or working height. The table is made of weather resistant powder coated aluminium that does not fade in sunlight. The coffee table is easy to move around and fits well with a modern décor."
+    },
+    {
+        "Model":  "5044AL",
+        "ProductName": "Go Lounge Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5044AL_P065AL.jpg",
+        "Price": 1410,
+        "TopologyId": 3,
+        "FunctionId": 2,
+        "Dimensions": "D: 60cm x H: 44cm",
+        "Description": "Go lounge table is a simple and elegant lounge table – a geometric playful construction with its 2 circular elements – top and base. The elegant, almost floating table top and the reduced minimalist foot gives the table a unique design, which fit in to almost every interior. Go lounge table allows you to mix and match colours and styles. The Go lounge table is made from powder-coated, all-weather aluminium with a counter weight base, to maximise stability and strength and thereby allow use in all weather conditions."
+    },
+    {
+        "Model":  "5017T",
+        "ProductName": "Twist Lounge Table",
+        "ImageUrl":  "https://localhost:5001/images/products/5017T_P120X60COB.jpg",
+        "Price": 2255,
+        "TopologyId": 3,
+        "FunctionId": 2,
+        "Dimensions": "W: 93cm x D: 53cm x H: 42cm",
+        "Description": "Twist is an elegant, decorative and practical coffee table for indoor and outdoor use. The coffee table is designed by the byKATO design duo, who are known for their modern and detailed design and high-quality craftsmanship. The Twist table is the perfect addition to the lounge area. Made using a lightweight frame in powder-coated aluminium, Twist is available with various tabletops and can easily be cleaned using a damp cloth."
+    },
+    {
+        "Model":  "8563TXSL",
+        "ProductName": "Flex 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/8563TXSL.jpg",
+        "Price": 3960,
+        "TopologyId": 1,
+        "FunctionId": 3,
+        "Dimensions": "W: 154cm x D: 76cm x H: 85cm",
+        "Description": "Flex dining and lounge sofas are ideal for outdoor use as they can be used both for relaxation and as a bench for the dining table. With its unique design and function, you can change the way the furniture is used in just a few seconds - from being a regular lounge area to a dining area where you can enjoy dinner. Flex is the essence of “life made comfortable” - you decide the function yourself. Flex is a modular system, where you can design your own lounge area that matches your neeeds and wishes perfectly."
+    },
+    {
+        "Model":  "8468TXSG",
+        "ProductName": "Flex Single Seater",
+        "ImageUrl":  "https://localhost:5001/images/products/8468TXSG.jpg",
+        "Price": 2045,
+        "TopologyId": 1,
+        "FunctionId": 3,
+        "Dimensions": "W: 70cm x D: 76cm x H: 85cm",
+        "Description": "The Flex dining lounge sofa and modules are the ideal sofa for outdoor use where the same space is used for both dining and lounging. With its unique design and function, you can change the way Flex is used in a matter of seconds – from dining to lounge or vice versa. Flex is the essence of “life made comfortable”. Flex is a modular sofa system, which can be built to match the shape and size of your wishes. You design your own dining lounge by combining the various elements."
+    },
+    {
+        "Model":  "DINING20",
+        "ProductName": "Connect Dining Corner",
+        "ImageUrl":  "https://localhost:5001/images/products/DINING20.jpg",
+        "Price": 9520,
+        "TopologyId": 1,
+        "FunctionId": 3,
+        "Dimensions": "W: 230cm x D: 230cm x H: 77cm",
+        "Description": "Connect is a series of comfortable and highly functional lounge and dining furniture designed by the Cane-line design team. Connect is a modular series that allows you to create a unique outdoor lounge area with multiple purposes that matches your every need. Connect is made in durable, weather-resistant Cane-line Weave®. The cushions have our popular QuickDry & Airflow system, which helps to maintain high standards of comfort and good air circulation. In addition, the cushions dry quickly after a downpour."
+    },
+    {
+        "Model":  "DINING30",
+        "ProductName": "Connect Dining Set",
+        "ImageUrl":  "https://localhost:5001/images/products/DINING30.jpg",
+        "Price": 7050,
+        "TopologyId": 1,
+        "FunctionId": 3,
+        "Dimensions": "W: 306cm x D: 77cm x H: 77cm",
+        "Description": "Connect is a series of comfortable and highly functional lounge and dining furniture designed by the Cane-line design team. Connect is a modular series that allows you to create a unique outdoor lounge area with multiple purposes that matches your every need. Connect is made in durable, weather-resistant Cane-line Weave®. The cushions have our popular QuickDry & Airflow system, which helps to maintain high standards of comfort and good air circulation. In addition, the cushions dry quickly after a downpour."
+    },
+    {
+        "Model":  "55194T",
+        "ProductName": "Connect 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/55194T_54198YS97.jpg",
+        "Price": 3525,
+        "TopologyId": 1,
+        "FunctionId": 3,
+        "Dimensions": "W: 153cm x D: 77cm x H: 77cm",
+        "Description": "The Connect dining lounge 2-seater sofa and modules are the ideal sofa for outdoor use where the same space is used for both dining and lounging. Connect 2-seater right module is a flexible, modern and timeless design. All modules in the Connect series are designed to create great flexibility for your outdoor space. Mix and match them to get the look that suits your outdoor space. Connect 2-seater is the ideal sofa whether you have a large garden or a small terrace. The sofa is manufactured in Cane-line Weave®."
+    },
+    {
+        "Model":  "5558RODGT",
+        "ProductName": "Peacock 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/5558RODGT_5558YSN95.jpg",
+        "Price": 4490,
+        "TopologyId": 2,
+        "FunctionId": 3,
+        "Dimensions": "W: 151cm x D: 96cm x H: 94cm",
+        "Description": "A beautiful visual furniture with comfort as the keyword. Peacock is a modern furniture designed by Foersom & Hiort-Lorenzen MDD. Peacock is available in two durable materials. Either Cane-line Weave® or Cane-line Soft Rope, which makes Peacock ideal for outdoor use in any climate as it is temperature and UV-resistant."
+    },
+    {
+        "Model":  "5567LI",
+        "ProductName": "Breeze 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/5567LI_5567YSN95.jpg",
+        "Price": 1795,
+        "TopologyId": 2,
+        "FunctionId": 3,
+        "Dimensions": "W: 154cm x D: 76cm x H: 78cm",
+        "Description": "The popular Breeze sofa is designed in a timeless and modern design. The sofa is designed for two people and is extremely comfortable and invites you to relax in the garden. Breeze 2-seater sofa is made of Cane-line Weave®, which means that it does not fade in colour and can be left outdoors all year. The sofa can be used as a stand-alone piece, but also has a nice interaction with the rest of the Breeze collection. The sofa only requires minimal maintenance and cleaning. Lean back and enjoy the sunny moments on the terrace."
+    },
+    {
+        "Model":  "55020UAI",
+        "ProductName": "Strington 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/55020UAITTT.jpg",
+        "Price": 3930,
+        "TopologyId": 2,
+        "FunctionId": 3,
+        "Dimensions": "W: 135cm x D: 85cm x H: 85cm",
+        "Description": "Strington is an inviting sofa designed by Danish design duo Foersom & Hiort-Lorenzen MDD. The sofa has a teak base that lends the sofa a pleasant warm glow. The sofa itself is made of sturdy, weather-resistant Cane-line Weave® on a strong aluminium frame. The sofa has a rattan-like colour that produces a natural and serene look that blends well with most outdoor spaces. Strington does not take up much space and is therefore ideal for small outdoor spaces."
+    },
+    {
+        "Model":  "4502T",
+        "ProductName": "Amaze 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/4502T_4402Y95.jpg",
+        "Price": 3560,
+        "TopologyId": 2,
+        "FunctionId": 3,
+        "Dimensions": "W: 145cm x D: 82cm x H: 77cm",
+        "Description": "The design for the beautiful 2-seater sofa is simple, comfortable and a good piece of craftsmanship. Relax and enjoy life on the warm evenings of the Amaze sofa after a long day at work. It has an artistic look when placed at a modern house. The sofa is a solid piece of furniture. The Amaze sofa can also be used with other products in the Amaze collection or mixed with other Cane-line products - the possibilities are many."
+    },
+    {
+        "Model":  "5556LT",
+        "ProductName": "Lansing 2-Seater Sofa",
+        "ImageUrl":  "https://localhost:5001/images/products/5556LT_5511YSN94.jpg",
+        "Price": 1110,
+        "TopologyId": 2,
+        "FunctionId": 3,
+        "Dimensions": "W: 145cm x D: 65cm x H: 85cm",
+        "Description": "Lansing 2-seater sofa is designed with inspiration from the old classic timeless wicker sofa. Pull the couch to the dining table on the patio and sit comfortable during the dinner under the blue sky or place the couch in the shade under a tree and enjoy the view on a nice summer day. Lansing 2-seater sofa is hand-woven with the durable Cane-line coloured fibres. The sofa requires minimal maintenance and can be cleaned with water and brush."
+    },
+    {
+        "Model":  "5508LSSG",
+        "ProductName": "Horizon daybed",
+        "ImageUrl":  "https://localhost:5001/images/products/5508LSSG_4.jpg",
+        "Price": 6795,
+        "TopologyId": 3,
+        "FunctionId": 3,
+        "Dimensions": "W: 148cm x D: 158cm x H: 78cm",
+        "Description": "Horizon daybed is an elegant and minimalist piece of lounge furniture with plenty of space for you and your loved ones. Designed by the Cane-line design team, the Horizon daybed draws inspiration from the Scandinavian design tradition with a focus on quality and comfort. Made of weather-resistant Cane-line Weave®, Horizon rests on an elegant, sleek steel frame that gives the daybed an almost floating appearance."
+    },
+    {
+        "Model":  "5561GIT",
+        "ProductName": "Peacock Daybed",
+        "ImageUrl":  "https://localhost:5001/images/products/5561GIT_01.jpg",
+        "Price": 11195,
+        "TopologyId": 3,
+        "FunctionId": 3,
+        "Dimensions": "W: 219cm x D: 199cm x H: 97cm",
+        "Description": "Peacock daybed is a beautiful visual furniture with comfort as the keyword. Peacock is a modern furniture designed by Foersom & Hiort-Lorenzen MDD. Peacock is available in Cane-line Weave®, which makes Peacock ideal for outdoor use in any climate as it is temperature and UV-resistant. It comes with a cushion set + 4 large back cushions (60x60 cm.) The Daybed cushions comes in an outstanding colour; Cane-line Natté light grey."
+    },
+    {
+        "Model":  "55500GAITG",
+        "ProductName": "Basket Daybed",
+        "ImageUrl":  "https://localhost:5001/images/products/55500GAITG.jpg",
+        "Price": 5995,
+        "TopologyId": 3,
+        "FunctionId": 3,
+        "Dimensions": "W: 203cm x D: 105cm x H: 67cm",
+        "Description": "The spacious Basket daybed is designed in collaboration with Søren Rose Studio. A comfortable daybed with striking design details, such as the backrest shaped as a shell. The Basket daybed is spacious with plenty of room for you alone or if you wish to cuddle up with your loved ones. Made of the durable Cane-line Weave® on a hot-dip galvanized steel frame with comfy Cane-line AirTouch cushions."
+    },
+    {
+        "Model":  "8538AITL",
+        "ProductName": "Conic Daybed",
+        "ImageUrl":  "https://localhost:5001/images/products/8538AITL.jpg",
+        "Price": 5970,
+        "TopologyId": 3,
+        "FunctionId": 3,
+        "Dimensions": "W: 120cm x D: 140cm x H: 82cm",
+        "Description": "This luxurious daybed allows for true relaxation. Conic Daybed can be used with the entire Conic range but can also decorate the garden environment as a stand-alone piece of furniture. The furniture has an exclusive design with a durable and practical fabric that is dirt-repellent. The cushions are in the weatherproof Cane-line AirTouch fabric with QuickDryFoam®. The QuickDryFoam® allows the cushions to dry quickly after a downpour."
+    },
+    {
+        "Model":  "55106LG",
+        "ProductName": "Mega Daybed",
+        "ImageUrl":  "https://localhost:5001/images/products/55106LG.jpg",
+        "Price": 5695,
+        "TopologyId": 3,
+        "FunctionId": 3,
+        "Dimensions": "W: 128cm x D: 180cm x H: 91cm",
+        "Description": "A modern statement furniture with room for all your loved ones. Mega is designed by byKATO and is a unique piece of furniture. The stringent design and the cool Scandinavian colour scheme give a very urban look. Mega is produced in Cane-line Weave® which makes it ideal for outdoor use in any climate as it is temperature and UV-resistant. The cushions are made with Cane-line SoftTouch® with QuickDry system for your comfort. The Cane-line QuickDry system is a special technique - after app. one hour from rain showers cushions are dry again."
+    }
+
+]

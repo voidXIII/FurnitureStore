@@ -16,7 +16,7 @@ export class TestErrorComponent implements OnInit {
   }
 
   get404Error(){
-    this.http.get(this.baseUrl + 'rooms/42').subscribe(response =>{
+    this.http.get(this.baseUrl + 'products/42').subscribe(response =>{
       console.log(response);
     }, error =>{
       console.log(error);
@@ -40,7 +40,7 @@ export class TestErrorComponent implements OnInit {
   }
 
   get400ValidationError(){
-    this.http.get(this.baseUrl + 'rooms/ffff').subscribe(response =>{
+    this.http.get(this.baseUrl + 'products/ffff').subscribe(response =>{
       console.log(response);
     }, error =>{
       console.log(error);

@@ -2,8 +2,6 @@ using AutoMapper;
 using Application.Dtos;
 using Domain.Entities;
 using Application.Dtos.Basket;
-using Domain.Entities.Identity;
-using Application.Dtos.User;
 
 namespace Application.Helpers
 {
@@ -18,9 +16,17 @@ namespace Application.Helpers
             CreateMap<ProductToUpdateDto, Product>();
             CreateMap<Topology, ProductTopologyToReturnDto>();
             CreateMap<Function, ProductFunctionToReturnDto>();
+            CreateMap<AddressDto, Address>().ReverseMap();
             CreateMap<CustomerBasket, CustomerBasketToReturnDto>().ReverseMap();
             CreateMap<CustomerBasketCreateOrUpdateDTO, CustomerBasket>();
             CreateMap<BasketItem, CustomerBasketItemsToReturnDto>().ReverseMap();
+            CreateMap<Order, OrderToReturnDto>()
+                .ForMember(d => d.DeliveryType, o => o.MapFrom(s => s.DeliveryType.Title))
+                .ForMember(d => d.DeliveryPrice, o => o.MapFrom(s => s.DeliveryType.Price));
+            CreateMap<OrderedProduct, OrderedProductDto>()
+                .ForMember(d => d.ProductId, o => o.MapFrom(s => s.ProductOrdered.ProductId))
+                .ForMember(d => d.ProductName, o => o.MapFrom(s => s.ProductOrdered.ProductName))
+                .ForMember(d => d.ImageUrl, o => o.MapFrom(s => s.ProductOrdered.ImageUrl));
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Application.Interfaces
         Task<T> DeleteAsync(int id);
         void Add(T entity);
         void Update(T entity);
+        void Delete(T entity);
         Task SaveChangesAsync();
         Task<int> CountAsync(ISpecification<T> spec);
     }

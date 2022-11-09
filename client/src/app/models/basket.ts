@@ -20,5 +20,7 @@ export interface IBasket {
   }
 
   export interface IBasketTotals {
+    order: number;
+    delivery: number;
     total: number
   }

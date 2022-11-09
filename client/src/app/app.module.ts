@@ -11,6 +11,7 @@ import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

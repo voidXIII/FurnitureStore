@@ -12,6 +12,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { BasketAggregateComponent } from './basket-aggregate/basket-aggregate.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    BasketAggregateComponent
   ],
   imports: [
     CommonModule,
@@ -29,13 +34,16 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatStepperModule,
+    RouterModule
   ],
   exports: [
     PagingHeaderComponent,
     PagingComponent,
     TextInputComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    BasketAggregateComponent
   ]
 })
 export class SharedModule { }

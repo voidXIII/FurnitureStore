@@ -8,16 +8,23 @@ import { TestErrorComponent } from './shared/test-error/test-error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'test-error', component: TestErrorComponent},
-  { path: 'server-error', component: ServerErrorComponent},
-  { path: 'not-found', component: NotFoundComponent},
+  { path: 'test-error', component: TestErrorComponent },
+  { path: 'server-error', component: ServerErrorComponent },
+  { path: 'not-found', component: NotFoundComponent },
   { path: 'store', loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule) },
   { path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule) },
-  { path: 'checkout',
+  {
+    path: 'checkout',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule) },
+    loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule)
+  },
+  {
+    path: 'orders',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule)
+  },
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule) },
-  { path: '**', redirectTo: ''}
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

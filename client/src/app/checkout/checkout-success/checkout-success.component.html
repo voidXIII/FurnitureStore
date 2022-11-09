@@ -1,5 +1,6 @@
 <div class="container">
     <mat-icon color="primary">check_circle</mat-icon>
     <h1>Thank you for your order</h1>
-    <button routerLink="/account/login" mat-stroked-button color="primary">View your orders</button>
+    <button *ngIf="order" routerLink="/orders/{{order?.id}}" mat-stroked-button color="primary">View your order</button>
+    <button *ngIf="!order" routerLink="/orders" mat-stroked-button color="primary">View your orders</button>
 </div>

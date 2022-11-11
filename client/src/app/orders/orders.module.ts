@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { OrdersComponent } from './orders.component';
 import { OrdersDetailedComponent } from './orders-detailed/orders-detailed.component';
 import { OrdersRoutingModule } from './orders-routing.module';
-import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,9 +12,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-  ],
-  exports: [
-    OrdersComponent
+    OrdersRoutingModule
   ]
 })
 export class OrdersModule { }

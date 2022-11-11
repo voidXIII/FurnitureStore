@@ -8,13 +8,14 @@ namespace Domain.Entities
         {
         }
 
-        public Order(string email, Address address, DeliveryType deliveryType, IReadOnlyList<OrderedProduct> orderedProducts, decimal sum)
+        public Order(string email, Address address, DeliveryType deliveryType, IReadOnlyList<OrderedProduct> orderedProducts, decimal sum, string paymentIntentId)
         {
             Email = email;
             Address = address;
             DeliveryType = deliveryType;
             OrderedProducts = orderedProducts;
             Sum = sum;
+            PaymentIntentId = paymentIntentId;
         }
 
         public string Email { get; set; }

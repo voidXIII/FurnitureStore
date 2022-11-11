@@ -47,7 +47,6 @@ export class StoreComponent implements OnInit {
   GetFunctions() {
     this.storeService.getFunctions().subscribe(response => {
       this.functions = [{id:0, functionTitle:'All'}, ...response];
-      console.log(response);
     })
   }
 

@@ -11,15 +11,9 @@ import { OrdersService } from 'src/app/services/orders.service';
 export class OrdersDetailedComponent implements OnInit {
   order: IOrder;
 
-  constructor(private route: ActivatedRoute, private orderService: OrdersService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.orderService.getUserOrderDetailed(+this.route.snapshot.paramMap.get('id'))
-      .subscribe((order: IOrder) => {
-        this.order = order;
-      }, error => {
-        console.log(error);
-      })
   }
 
 }

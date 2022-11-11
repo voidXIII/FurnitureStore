@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <mat-stepper>
-                <mat-step label="Address" [completed]="(checkoutForm.get('addressForm')).valid" errorMessage="Address is required">
+            <mat-stepper linear>
+                <mat-step label="Address" [completed]="(checkoutForm.get('addressForm')).valid">
                     <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
                     <div>
                         <button mat-button matStepperNext [disabled]="!(checkoutForm.get('addressForm')).valid">Next</button>
@@ -19,14 +19,14 @@
                     <app-checkout-review></app-checkout-review>
                     <div>
                         <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
+                        <button mat-button matStepperNext (click)="createStripePaymentIntent()">Next</button>
                     </div>
                 </mat-step>
                 <mat-step label="Payment">
-                    <app-checkout-payment></app-checkout-payment>
+                    <app-checkout-payment [checkoutForm]="checkoutForm" #paymentComponent></app-checkout-payment>
                     <div>
                         <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="submitOrder()">Submit</button>
+                        <button #paymentComponent mat-button [disabled]="!(checkoutForm.get('paymentForm')).valid" (click)="submitOrder()">Submit</button>
                     </div>
                 </mat-step>
             </mat-stepper>

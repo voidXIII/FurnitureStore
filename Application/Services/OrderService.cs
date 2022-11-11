@@ -8,8 +8,10 @@ namespace Application.Services
     {
         private readonly IBasketRepository _basketRepo;
         private readonly IUnitOfWork _unitOfWork;
-        public OrderService(IUnitOfWork unitOfWork, IBasketRepository basketRepo)
+        private readonly IStripeService _stripeService;
+        public OrderService(IUnitOfWork unitOfWork, IBasketRepository basketRepo, IStripeService stripeService)
         {
+            _stripeService = stripeService;
             _unitOfWork = unitOfWork;
             _basketRepo = basketRepo;
         }
@@ -17,6 +19,8 @@ namespace Application.Services
         public async Task<Order> CreateOrderAsync(string userEmail, int deliveryTypeId, string basketId, Address address)
         {
             var basket = await _basketRepo.GetBasketAsync(basketId);
+
+            if (basket == null) return null;
 
             var items = new List<OrderedProduct>();
             foreach(var item in basket.Items)
@@ -31,15 +35,22 @@ namespace Application.Services
 
             var sum = items.Sum(item => item.Price * item.Quantity);
 
-            var order = new Order(userEmail, address, deliveryType, items, sum);
+            var spec = new OrderWithPaymentIntentIdSpecification(basket.PaymentIntentId);
+            var existingOrder = await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
+
+            if (existingOrder != null)
+            {
+                _unitOfWork.Repository<Order>().Delete(existingOrder);
+                await _stripeService.AddOrUpdateStripeIntent(basket.PaymentIntentId);
+            }
+
+            var order = new Order(userEmail, address, deliveryType, items, sum, basket.PaymentIntentId);
 
             _unitOfWork.Repository<Order>().Add(order);
 
             var result = await _unitOfWork.Complete();
 
             if(result <= 0) return null;
-
-            await _basketRepo.DeleteBasketAsync(basketId);
 
             return order;
         }

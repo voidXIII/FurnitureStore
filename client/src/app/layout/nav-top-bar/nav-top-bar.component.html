@@ -1,11 +1,11 @@
 <div class="navigation-bar">
-<img src="/assets/logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
+<img src="/assets/logo1.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
 
     <nav class="menu" style="font-size: larger;">
       <a class="menu-element" [routerLink]="['/']" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact:true}">Home</a>
       <a class="menu-element" [routerLink]="['/store']" routerLinkActive="active">Store</a>
-      <a class="menu-element" [routerLink]="['/test-error']" routerLinkActive="active">Errors</a>
+      <a class="menu-element" [routerLink]="['/test-error']" routerLinkActive="active">About Us</a>
     </nav>
     <div class="user">
       <a routerLink="/basket" class="cart-position">
@@ -21,6 +21,8 @@
           </button>
         <mat-menu #menu="matMenu">
           <button routerLink="/basket" mat-menu-item><mat-icon>shopping_cart</mat-icon>Cart</button>
+          <button (click)="editPassword()" mat-menu-item><mat-icon>edit</mat-icon>Edit Password</button>
+          <button (click)="deleteAccount()" mat-menu-item><mat-icon>highlight_remove</mat-icon>Delete Account</button>
           <button (click)="logout()" mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
         </mat-menu>
 

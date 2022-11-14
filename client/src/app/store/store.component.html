@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="search" *ngIf="products">
-            <button mat-stroked-button color="primary" (click)="addProduct()">AddProduct</button>
+            <button mat-stroked-button (click)="addProduct()"><mat-icon>add_box</mat-icon>Add</button>
             </div>
             <div class="paginator" *ngIf="products">
                 <mat-paginator

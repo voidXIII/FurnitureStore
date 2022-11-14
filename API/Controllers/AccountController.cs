@@ -47,21 +47,29 @@ namespace API.Controllers
             return Ok(register);
         }
 
-        [HttpPost("update-password")]
+        [HttpPut("update-password")]
         public async Task<ActionResult> UpdatePassword(UpdatePasswordDto updatePassword)
         {
             await _accountService.UpdatePassword(updatePassword.OldPassword, 
-                updatePassword.NewPassword, GetEmail());
+            updatePassword.NewPassword, GetEmail());
 
             return Ok();
         }
 
-        [HttpPost("update-email")]
+        [HttpPut("update-email")]
         public async Task<ActionResult> UpdateEmail(UpdateEmailDto updateEmail)
         {
             await _accountService.UpdateEmail(updateEmail.Email, updateEmail.Token, GetEmail());
 
             return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteUser(string email)
+        {
+            await _accountService.DeleteCurrentUser(email);
+
+            return NoContent();
         }
 
         private string GetEmail()

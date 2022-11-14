@@ -26,7 +26,7 @@ export class ProductAddComponent implements OnInit {
       model: new FormControl('', [Validators.required]),
       productName: new FormControl('', [Validators.required]),
       imageUrl: new FormControl('', [Validators.required]),
-      price: new FormControl(0, [Validators.required]),
+      price: new FormControl(null, [Validators.required]),
       topologyId: new FormControl('', [Validators.required]),
       functionId: new FormControl('', [Validators.required]),
       dimensions: new FormControl('', [Validators.required]),

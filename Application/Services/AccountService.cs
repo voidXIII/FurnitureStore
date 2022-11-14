@@ -26,6 +26,18 @@ namespace Application.Services
             return await _userManager.FindByEmailAsync(email) != null;
         }
 
+        public async Task DeleteCurrentUser(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("User with this email doesn't exist.");
+            }
+
+            await _userManager.DeleteAsync(user);
+        }
+
         public async Task<UserDto> GetCurrentUser(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);

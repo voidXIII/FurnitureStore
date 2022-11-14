@@ -7,6 +7,7 @@
     <span>{{product.price | currency}}</span>
   </mat-card-content>
   <mat-card-actions class="button">
+    <button (click)="addItemToBasket()" mat-button><mat-icon>shopping_cart</mat-icon></button>
     <button routerLink="/store/{{product.id}}" mat-button>VIEW</button>
   </mat-card-actions>
 </mat-card>

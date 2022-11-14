@@ -10,5 +10,6 @@ namespace Application.Interfaces
         Task<UserDto> Register(RegisterDto registerDTO);
         Task<UserDto> UpdatePassword(string oldPassword, string newPassword, string email);
         Task<UserDto> UpdateEmail(string email, string token, string currentEmail);
+        Task DeleteCurrentUser(string email);
     }
 }

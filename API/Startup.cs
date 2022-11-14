@@ -48,6 +48,7 @@ namespace API
             {
                 app.UseSwaggerDocumentation();
             }
+            app.UseMiddleware<TransactionMiddleware>();
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseHttpsRedirection();
 

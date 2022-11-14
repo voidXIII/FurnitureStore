@@ -11,16 +11,23 @@
           <mat-grid-tile>
             <mat-card-content>
               <h1 style="color:brown;">{{product.price | currency}}</h1>
-            <p>{{product.description}}</p>
+              <div>
+                <a (click)="decrementQuantity()"><mat-icon style="cursor: pointer; font-size: 1.5em;">remove_circle</mat-icon></a>
+                <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
+                <a (click)="incrementQuantity()"><mat-icon style="cursor: pointer; font-size: 1.5em;">add_circle</mat-icon></a>
+                <button (click)="addItemToBasket()" mat-button><mat-icon>add_shopping_cart</mat-icon>Add to Card</button>
+              </div>
+              <br>
+              <p>{{product.description}}</p>
               
           </mat-card-content>
           </mat-grid-tile>
         </mat-grid-list>
 
         <mat-card-actions>
-          <button (click)="addItemToBasket()" mat-button>Add to Card</button>
-          <button mat-stroked-button color="primary" (click)="updateProduct(product)">Update Product</button>
-          <button mat-stroked-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+
+          <button mat-stroked-button color="primary" (click)="updateProduct(product)"><mat-icon>edit</mat-icon>Edit Product</button>
+          <button mat-stroked-button color="warn" (click)="deleteProduct(product.id)"><mat-icon>delete</mat-icon>Delete</button>
 
         </mat-card-actions>
       </mat-card>

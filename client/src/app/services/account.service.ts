@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, of, ReplaySubject } from 'rxjs';
+import { map, Observable, of, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IPasswordUpdate } from '../models/passwordUpdate';
 import { IUser } from '../models/user';
 
 @Injectable({
@@ -63,5 +64,17 @@ export class AccountService {
 
   checkEmailExists(email: string){
     return this.http.get<boolean>(this.baseUrl + 'account/emailexists?email=' + email);
+  }
+
+  deleteUser(email: string){
+    this.logout();
+    return this.http.delete(this.baseUrl + 'account?email=' + email);
+  }
+
+  updatePassword(values: IPasswordUpdate): Observable<IUser> {
+    return this.http.put<IUser>(
+      this.baseUrl + 'account/update-password',
+      values
+    );
   }
 }

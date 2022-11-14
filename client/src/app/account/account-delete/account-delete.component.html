@@ -1,0 +1,10 @@
+<ng-container *ngIf="(currentUser$ | async) as user">
+    <mat-dialog-content>
+        You are deleting your account
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close>No</button>
+        <button mat-button mat-dialog-close (click)="deleteAccount(user.email)">Yes</button>
+      </mat-dialog-actions>
+</ng-container>
+  

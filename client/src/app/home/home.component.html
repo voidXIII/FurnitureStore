@@ -1,24 +1,29 @@
 <div class="contain">
-<carousel class="margin-top">
-    <slide>
-        <img src="assets/room-105.png" alt="first slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/room-106.png" alt="second slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/room-107.png" alt="third slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/room-108.png" alt="fourth slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/room-109.png" alt="fifth slide" style="display: block; width: 100%;">
-    </slide>
-</carousel>
+    <carousel class="margin-top">
+        <slide>
+            <img src="assets/banner-1.jpg" alt="first slide" style="display: block; width: 100%;">
+        </slide>
+        <slide>
+            <img src="assets/banner-2.jpg" alt="second slide" style="display: block; width: 100%;">
+        </slide>
+        <slide>
+            <img src="assets/banner-3.jpg" alt="third slide" style="display: block; width: 100%;">
+        </slide>
+        <slide>
+            <img src="assets/banner-4.jpg" alt="fourth slide" style="display: block; width: 100%;">
+        </slide>
+        <slide>
+            <img src="assets/banner-5.jpg" alt="fifth slide" style="display: block; width: 100%;">
+        </slide>
+    </carousel>
 </div>
 <section class="featured">
     <div class="featured-content">
         <h1>Find the best deals!</h1>
+    </div>
+    <div class="row">
+        <div class="col-3 mb-4" *ngFor="let product of products">
+            <app-product [product]="product"></app-product>
+        </div>
     </div>
 </section>

@@ -15,6 +15,8 @@ import { ProductUpdateComponent } from '../product-update/product-update.compone
 export class ProductDetailsComponent implements OnInit {
   product: IProduct;
   productId: number;
+  quantity = 1;
+
   constructor(private storeService: StoreService, private activateRoute: ActivatedRoute, private basketService: BasketService, private dialog: MatDialog, 
     private router: Router, private snackBar: MatSnackBar) { }
 
@@ -34,7 +36,17 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addItemToBasket() {
-    this.basketService.addItemToBasket(this.product);
+    this.basketService.addItemToBasket(this.product, this.quantity);
+  }
+
+  incrementQuantity() {
+    this.quantity++;
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
   }
 
   updateProduct(product: IProduct) {
@@ -53,7 +65,7 @@ export class ProductDetailsComponent implements OnInit {
     this.storeService.deleteProduct(id).subscribe(() => {
       this.storeService.setRefresh(true);
       this.router.navigateByUrl('/store');
-      this.snackBar.open('product was successfully deleted', 'Close', {
+      this.snackBar.open('Product was successfully deleted', 'Close', {
         duration: 5000
       });
     }, error => {

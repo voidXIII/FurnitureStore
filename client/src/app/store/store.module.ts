@@ -17,6 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -40,7 +41,11 @@ import { ProductUpdateComponent } from './product-update/product-update.componen
     StoreRoutingModule,
     MatSnackBarModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
+  ],
+  exports: [
+    ProductComponent
   ]
 })
 export class StoreModule { }

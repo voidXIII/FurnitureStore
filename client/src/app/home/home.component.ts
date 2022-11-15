@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../models/product';
-import { StoreParams } from '../models/storeParams';
+import { HomePageStoreParams, StoreParams } from '../models/storeParams';
 import { StoreService } from '../services/store.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { StoreService } from '../services/store.service';
 })
 export class HomeComponent implements OnInit {
   products: IProduct[];
-  storeParams = new StoreParams();
-  totalCount: number = 0;
+  storeParams = new HomePageStoreParams();
+  totalCount: number = 4;
 
 
   constructor(private storeService: StoreService) { }

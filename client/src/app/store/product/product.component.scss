@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color:#212121;
 }
 
 button {
     width: 100%;
-    border: 1px solid green;
 }
 
 .img-fluid {
@@ -16,16 +16,31 @@ button {
 
 mat-card-title{
     padding-top: 1rem;
+    margin-bottom: 0px;
 }
 
 mat-card-content{
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 0;
+    margin-top: 0px;
 }
 mat-card{
     width: 99%;
     height: 100%;
 
+}
+
+a {
+    text-decoration: none;
+    color: #616161;
+
+    &.active{
+        color:#FFB300;
+    }
+}
+
+a:hover{
+    color: #FFB300;
 }

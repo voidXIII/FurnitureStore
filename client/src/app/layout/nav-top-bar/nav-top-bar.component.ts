@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AccountDeleteComponent } from 'src/app/account/account-delete/account-delete.component';
 import { AccountUpdatePasswordComponent } from 'src/app/account/account-update-password/account-update-password.component';
+import { LoginComponent } from 'src/app/account/login/login.component';
+import { RegisterComponent } from 'src/app/account/register/register.component';
 import { IBasket } from 'src/app/models/basket';
 import { IUser } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
@@ -34,5 +36,13 @@ export class NavTopBarComponent implements OnInit {
 
   deleteAccount(){
     this.dialog.open(AccountDeleteComponent);
+  }
+
+  login(){
+    this.dialog.open(LoginComponent);
+  }
+
+  register(){
+    this.dialog.open(RegisterComponent);
   }
 }

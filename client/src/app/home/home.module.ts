@@ -5,13 +5,15 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { StoreModule } from '../store/store.module';
 
 
+
 @NgModule({
   declarations: [
     HomeComponent
   ],
   imports: [
     CommonModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    StoreModule
   ],
   exports: [
     HomeComponent

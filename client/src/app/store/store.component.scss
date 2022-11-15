@@ -25,6 +25,7 @@
 .filter-title {
     margin: 0.5rem;
     padding-left: 1rem;
+    color:#616161;
 }
 
 
@@ -90,12 +91,12 @@ mat-list-option {
 }
 
 mat-list-option:hover {
-    background-color: lightblue;
+    background-color: #BDBDBD;
     border-radius: 0.75rem;
 }
 
 mat-list-option:focus-within {
-    background-color: lightblue;
+    background-color: #BDBDBD;
     border-radius: 0.75rem;
 }
 

@@ -10,15 +10,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ProductDetailsComponent } from './product-details/product-details.component'; 
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { StoreRoutingModule } from './store-routing.module';
 import { ProductAddComponent } from './product-add/product-add.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar'; 
-import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatDividerModule
   ],
   exports: [
     ProductComponent

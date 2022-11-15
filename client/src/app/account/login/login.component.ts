@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.accountService.login(this.loginForm.value).subscribe(() => {
       this.router.navigateByUrl(this.returnUrl);
     }, error => {
-      this.snackBar.open(error.errors, 'Close', {
+      this.snackBar.open(error.errors.message, 'Close', {
         duration: 5000
       });
     })

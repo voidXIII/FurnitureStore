@@ -1,32 +1,32 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <mat-stepper linear>
+            <mat-stepper linear color="accent">
                 <mat-step label="Address" [completed]="(checkoutForm.get('addressForm')).valid">
                     <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
                     <div>
-                        <button mat-button matStepperNext [disabled]="!(checkoutForm.get('addressForm')).valid">Next</button>
+                        <button mat-flat-button color="accent" matStepperNext [disabled]="!(checkoutForm.get('addressForm')).valid">Next</button>
                     </div>
                 </mat-step>
                 <mat-step label="Delivery" [completed]="(checkoutForm.get('deliveryForm')).valid">
                     <app-checkout-delivery [checkoutForm]="checkoutForm"></app-checkout-delivery>
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext [disabled]="!(checkoutForm.get('deliveryForm')).valid">Next</button>
+                        <button mat-flat-button color="accent" matStepperPrevious>Back</button>
+                        <button mat-flat-button color="accent" matStepperNext [disabled]="!(checkoutForm.get('deliveryForm')).valid">Next</button>
                     </div>
                 </mat-step>
                 <mat-step label="Review">
                     <app-checkout-review></app-checkout-review>
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext (click)="createStripePaymentIntent()">Next</button>
+                        <button mat-flat-button color="accent" matStepperPrevious>Back</button>
+                        <button mat-flat-button color="accent" matStepperNext (click)="createStripePaymentIntent()">Next</button>
                     </div>
                 </mat-step>
                 <mat-step label="Payment">
                     <app-checkout-payment [checkoutForm]="checkoutForm" #paymentComponent></app-checkout-payment>
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button #paymentComponent mat-button [disabled]="!(checkoutForm.get('paymentForm')).valid" (click)="submitOrder()">Submit</button>
+                        <button mat-flat-button color="accent" matStepperPrevious>Back</button>
+                        <button #paymentComponent mat-flat-button color="accent" [disabled]="!(checkoutForm.get('paymentForm')).valid" (click)="submitOrder()">Submit</button>
                     </div>
                 </mat-step>
             </mat-stepper>

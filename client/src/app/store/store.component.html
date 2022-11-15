@@ -3,11 +3,11 @@
     
         <section class="side-bar">
             <ng-container *ngIf="topologies && functions">
-            <mat-form-field class="sort-select" appearance="standard">
+            <mat-form-field class="sort-select" appearance="outline">
                 <mat-label>Sort</mat-label>
                 <mat-select (change)="OnSortSelected($event.target.value)">
                     <mat-option *ngFor="let sort of sortOptions" [value]="sort.value"
-                        (click)="OnSortSelected(sort.value)">{{sort.name}}
+                        (click)="OnSortSelected(sort.value)" style="color: #616161;">{{sort.name}}
                     </mat-option>
 
                 </mat-select>
@@ -16,13 +16,14 @@
 
             <h5 class="filter-title" style="font-size:large">by Topology</h5>
             <mat-selection-list class="filters" [multiple]="false">
-                <mat-list-option *ngFor="let item of topologies" [value]="item.id" (click)="OnTopologySelected(item.id)">
+                <mat-list-option *ngFor="let item of topologies" [value]="item.id" (click)="OnTopologySelected(item.id)" style="color: #616161;">
                     {{item.topologyTitle}}
                 </mat-list-option>
             </mat-selection-list>
+             
             <h5 class="filter-title" style="font-size:large">by Function</h5>
             <mat-selection-list class="filters" [multiple]="false">
-                <mat-list-option *ngFor="let item of functions" [value]="item.id" (click)="OnFunctionSelected(item.id)">
+                <mat-list-option *ngFor="let item of functions" [value]="item.id" (click)="OnFunctionSelected(item.id)" style="color: #616161;">
                     {{item.functionTitle}}
                 </mat-list-option>
             </mat-selection-list>
@@ -36,8 +37,8 @@
                 <div class="search-buttons" *ngIf="products">
                     <input (keyup.enter)="OnSearch()" type="text" class="search-form" #search style="width:300px"
                         placeholder="Search">
-                    <button mat-stroked-button color="primary" (click)="OnSearch()" class="search">Search</button>
-                    <button mat-stroked-button color="warn" (click)="OnReset()" class="reset">Reset</button>
+                    <button mat-flat-button color="primary" (click)="OnSearch()" class="search">Search</button>
+                    <button mat-flat-button color="accent" (click)="OnReset()" class="reset">Reset</button>
                 </div>
             </div>
             
@@ -47,7 +48,7 @@
                 </div>
             </div>
             <div class="search" *ngIf="products">
-            <button mat-stroked-button (click)="addProduct()"><mat-icon>add_box</mat-icon>Add</button>
+            <button mat-raised-button (click)="addProduct()"><mat-icon color="primary">add_box</mat-icon></button>
             </div>
             <div class="paginator" *ngIf="products">
                 <mat-paginator

@@ -17,7 +17,11 @@
         </slide>
     </carousel>
 </div>
+
+
 <section class="featured">
+    <div class="container">
+        <div class="content">
     <div class="featured-content">
         <h1>Find the best deals!</h1>
     </div>
@@ -25,5 +29,7 @@
         <div class="col-3 mb-4" *ngFor="let product of products">
             <app-product [product]="product"></app-product>
         </div>
+    </div>
+    </div>
     </div>
 </section>

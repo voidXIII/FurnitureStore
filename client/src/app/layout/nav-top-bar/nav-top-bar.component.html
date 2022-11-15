@@ -1,9 +1,9 @@
 <div class="navigation-bar">
-<img src="/assets/logo1.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
+<img src="/assets/logo3.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
 
     <nav class="menu" style="font-size: larger;">
       <a class="menu-element" [routerLink]="['/']" routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact:true}">Home</a>
+      [routerLinkActiveOptions]="{exact:true}" >Home</a>
       <a class="menu-element" [routerLink]="['/store']" routerLinkActive="active">Store</a>
       <a class="menu-element" [routerLink]="['/test-error']" routerLinkActive="active">About Us</a>
     </nav>
@@ -12,12 +12,12 @@
         <mat-icon *ngIf="(basket$ | async) as basket" matBadge="{{basket.items.length}}" matBadgeColor="accent" class="cart">shopping_cart</mat-icon>
       </a>
       <ng-container *ngIf="(currentUser$ | async) === null">
-        <button routerLink="/account/login" mat-stroked-button color="primary" class="login">Login</button>
-        <button routerLink="/account/register" mat-stroked-button color="warn" class="sign-up">Sign Up</button>
+        <button routerLink="/account/login" mat-raised-button class="login">Login</button>
+        <button routerLink="/account/register" mat-button color="accent" class="sign-up">Sign Up</button>
       </ng-container>
 
       <ng-container *ngIf="(currentUser$ | async) as user">
-        <button mat-button [matMenuTriggerFor]="menu"><u>Welcome {{user.displayName}}</u><mat-icon>arrow_drop_down</mat-icon>
+        <button mat-button [matMenuTriggerFor]="menu" class="user-menu"><u>Welcome {{user.displayName}}</u><mat-icon>arrow_drop_down</mat-icon>
           </button>
         <mat-menu #menu="matMenu">
           <button routerLink="/basket" mat-menu-item><mat-icon>shopping_cart</mat-icon>Cart</button>

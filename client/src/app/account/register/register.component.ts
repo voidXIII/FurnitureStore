@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
       () => { 
         this.router.navigateByUrl('/book') 
       }, error => {
-        this.snackBar.open(error.errors, 'Close', {
+        this.snackBar.open(error.errors.message, 'Close', {
           duration: 5000
         });
     })

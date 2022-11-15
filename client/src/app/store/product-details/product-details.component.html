@@ -1,30 +1,48 @@
 <div *ngIf="product" class="container">
     <mat-card class="card">
-        <mat-card-header>
-          <mat-card-title>{{product.productName}}</mat-card-title>
-          <mat-card-subtitle>{{product.topology}}</mat-card-subtitle>
-        </mat-card-header>
         <mat-grid-list cols="2" rowsHeight="2:1">
           <mat-grid-tile>
             <img mat-card-image src="{{product.imageUrl}}" alt="{{product.productName}}">
           </mat-grid-tile>
           <mat-grid-tile>
             <mat-card-content>
-              <h1 style="color:brown;">{{product.price | currency}}</h1>
-              <div>
-                <a (click)="decrementQuantity()"><mat-icon style="cursor: pointer; font-size: 1.5em;">remove_circle</mat-icon></a>
+              <h1 style="font-size: 32px;">{{product.productName}}</h1>
+              <mat-divider></mat-divider>
+              <h3 style="margin: 0px; font-size:13px;">Model:  {{product.model}}</h3>
+              <h3 style="margin: 0px; font-size:13px;">Type:  {{product.topology}}</h3>
+              <h1 style="margin-top: 1rem; ">Price: {{product.price | currency}}</h1>
+              <div style="margin-top: 20px;">
+                <a (click)="decrementQuantity()"><mat-icon style="cursor: pointer; font-size: 1.5em;color:#9E9E9E">remove_circle</mat-icon></a>
                 <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
-                <a (click)="incrementQuantity()"><mat-icon style="cursor: pointer; font-size: 1.5em;">add_circle</mat-icon></a>
-                <button (click)="addItemToBasket()" mat-button><mat-icon>add_shopping_cart</mat-icon>Add to Card</button>
+                <a (click)="incrementQuantity()"><mat-icon style="cursor: pointer; font-size: 1.5em;color:#9E9E9E" >add_circle</mat-icon></a>
+                <button (click)="addItemToBasket()" mat-raised-button color="accent" style="padding-left: 1rem; margin-left:1rem;"><mat-icon>add_shopping_cart</mat-icon>Add to Card</button>
               </div>
               <br>
-              <p>{{product.description}}</p>
+              <mat-divider></mat-divider>
+
+              <mat-tab-group mat-stretch-tabs class="tabs">
+                <mat-tab label="Description">
+                  <h4></h4>
+                  <p class="description">{{product.description}}</p></mat-tab>
+                <mat-tab label="Specifications"> 
+                  <h4></h4>
+                  <h3 style="text-align: center;">function: {{product.function}}</h3>
+                  <mat-divider></mat-divider>
+                  <h3 style="text-align: center; margin-top: 0.5rem;">fopology: {{product.topology}}</h3>
+                  <mat-divider></mat-divider>
+                  <h3 style="text-align: center; margin-top: 0.5rem;">designed by: Cane-line Team</h3>
+                  <mat-divider></mat-divider>
+                  <h3 style="text-align: center; margin-top: 0.5rem;">size: {{product.dimensions}}</h3>
+                </mat-tab>
+
+              </mat-tab-group>
+              
               
           </mat-card-content>
           </mat-grid-tile>
         </mat-grid-list>
 
-        <mat-card-actions>
+        <mat-card-actions align="end">
 
           <button mat-stroked-button color="primary" (click)="updateProduct(product)"><mat-icon>edit</mat-icon>Edit Product</button>
           <button mat-stroked-button color="warn" (click)="deleteProduct(product.id)"><mat-icon>delete</mat-icon>Delete</button>

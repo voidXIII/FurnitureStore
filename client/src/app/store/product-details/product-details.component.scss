@@ -1,13 +1,8 @@
-.card{
+.card {
     margin-bottom: 1.5rem;
 }
 
-h1{
-    display: flex;
-    justify-content: flex-end;
-}
-
-img{
+img {
     border-radius: 0.5rem;
 }
 
@@ -17,3 +12,56 @@ img{
     margin-left: auto;
     margin-top: 130px;
 }
+
+.product-details {
+    align-items: center;
+    justify-content: center;
+}
+
+
+.tabs {
+    max-width: 100%;
+    width: 600px;
+    max-height: 100%;
+    height: 300px;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table td {
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+table tr:first-child td {
+    border-top: 0;
+}
+
+table tr td:first-child {
+    border-left: 0;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
+
+h1, h2, h3{
+    color: #616161;
+}
+
+.description{
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 100;
+    color: #616161;
+}
+

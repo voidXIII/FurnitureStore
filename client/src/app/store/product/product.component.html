@@ -1,14 +1,14 @@
 <mat-card>
   <img src="{{product.imageUrl}}" alt="{{product.productName}}" class="img-fluid">
   <a routerLink="/store/{{product.id}}">
-    <mat-card-title>{{product.productName}}</mat-card-title>
+    <mat-card-title><h2 style="text-align: center; margin-bottom: 2px;">{{product.productName}}</h2></mat-card-title>
   </a>
   <mat-card-content>
-    <span>{{product.price | currency}}</span>
+    <span><h3 style="margin-bottom: 2px; color:#616161;">{{product.price | currency}}</h3></span>
   </mat-card-content>
   <mat-card-actions class="button">
-    <button (click)="addItemToBasket()" mat-button><mat-icon>shopping_cart</mat-icon></button>
-    <button routerLink="/store/{{product.id}}" mat-button>VIEW</button>
+    <button (click)="addItemToBasket()" mat-raised-button color="accent"><mat-icon>shopping_cart</mat-icon></button>
+    <button routerLink="/store/{{product.id}}" mat-raised-button color="primary">VIEW</button>
   </mat-card-actions>
 </mat-card>
 

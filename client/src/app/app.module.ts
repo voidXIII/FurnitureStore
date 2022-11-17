@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { AboutUsModule } from './about-us/about-us.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     HttpClientModule,
     HomeModule,
     MatSnackBarModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AboutUsModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

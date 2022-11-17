@@ -11,6 +11,14 @@ export class CheckoutAddressComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const value = sessionStorage.getItem('adress');
+    if (value) {
+      this.checkoutForm.setValue(JSON.parse(value));
+    }
   }
 
+  saveDataToStorage(){
+    const value = this.checkoutForm.value;
+    sessionStorage.setItem('adress', JSON.stringify(value))
+  }
 }

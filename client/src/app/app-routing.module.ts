@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ServerErrorComponent } from './shared/server-error/server-error.component';
-import { TestErrorComponent } from './shared/test-error/test-error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'test-error', component: TestErrorComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'store', loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule) },

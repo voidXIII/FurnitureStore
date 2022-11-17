@@ -2,7 +2,7 @@
     <div>
         <h2 style="margin-top: 10px;">Delivery Address</h2>
     </div>
-    <div class="row" formGroupName="addressForm">
+    <div class="row" formGroupName="addressForm" (change)="saveDataToStorage()">
         <div class="form-group col-6">
             <app-text-input [label]="'First Name'" formControlName="firstName"></app-text-input>
         </div>

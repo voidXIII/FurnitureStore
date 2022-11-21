@@ -13,12 +13,16 @@ namespace Application.Services
     public class StripeService : IStripeService
     {
         private readonly IBasketRepository _basketRepository;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _config;
-        public StripeService(IBasketRepository basketRepository, IUnitOfWork unitOfWork, IConfiguration config)
+        private readonly IRepository<Domain.Entities.Product> _productRepo;
+        private readonly IRepository<Order> _orderRepo;
+        private readonly IRepository<DeliveryType> _deliveryTypeRepo;
+        public StripeService(IBasketRepository basketRepository, IConfiguration config, IRepository<Domain.Entities.Product> productRepo, IRepository<Order> orderRepo, IRepository<DeliveryType> deliveryTypeRepo)
         {
+            _deliveryTypeRepo = deliveryTypeRepo;
+            _orderRepo = orderRepo;
+            _productRepo = productRepo;
             _config = config;
-            _unitOfWork = unitOfWork;
             _basketRepository = basketRepository;
         }
 
@@ -31,13 +35,13 @@ namespace Application.Services
 
             if (basket.DeliveryTypeId.HasValue)
             {
-                var deliveryType = await _unitOfWork.Repository<DeliveryType>().GetByIdAsync((int)basket.DeliveryTypeId);
+                var deliveryType = await _deliveryTypeRepo.GetByIdAsync((int)basket.DeliveryTypeId);
                 deliveryPrice = deliveryType.Price;
             }
 
             foreach(var item in basket.Items)
             {
-                var productItem = await _unitOfWork.Repository<Domain.Entities.Product>().GetByIdAsync(item.Id);
+                var productItem = await _productRepo.GetByIdAsync(item.Id);
                 if (item.Price != productItem.Price)
                 {
                     item.Price = productItem.Price;
@@ -79,13 +83,13 @@ namespace Application.Services
         public async Task<Order> UpdateOrderPaymentFailed(string paymentIntentId)
         {
             var spec = new OrderWithPaymentIntentIdSpecification(paymentIntentId);
-            var order = await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
+            var order = await _orderRepo.GetEntityWithSpec(spec);
 
             if (order == null) return null;
 
             order.Status = OrderStatus.PaymentFailed;
 
-            await _unitOfWork.Complete();
+            await _orderRepo.SaveChangesAsync();
 
             return order;
         }
@@ -93,14 +97,14 @@ namespace Application.Services
         public async Task<Order> UpdateOrderPaymentSucceeded(string paymentIntentId)
         {
             var spec = new OrderWithPaymentIntentIdSpecification(paymentIntentId);
-            var order = await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
+            var order = await _orderRepo.GetEntityWithSpec(spec);
 
             if (order == null) return null;
 
             order.Status = OrderStatus.PaymentRecevied;
-            _unitOfWork.Repository<Order>().Update(order);
+            _orderRepo.Update(order);
 
-            await _unitOfWork.Complete();
+            await _orderRepo.SaveChangesAsync();
 
             return order;
         }

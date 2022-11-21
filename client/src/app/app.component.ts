@@ -11,7 +11,7 @@ import { BasketService } from './services/basket.service';
 export class AppComponent implements OnInit {
   title = 'FurnitureStore';
 
-  constructor(private basketService: BasketService, private accountService: AccountService) {}
+  constructor(private basketService: BasketService, private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.loadBasket();
@@ -20,20 +20,26 @@ export class AppComponent implements OnInit {
 
   loadCurrentUser() {
     const token = localStorage.getItem('token');
-      this.accountService.loadCurrentUser(token).subscribe(() => {
+    this.accountService.loadCurrentUser(token).subscribe({
+      next: () => {
         console.log('loaded user');
-      }, error => {
+      },
+      error: (error) => {
         console.log(error);
-      })
+      }
+    })
   }
 
-  loadBasket(){
+  loadBasket() {
     const basketId = localStorage.getItem('basket_id');
-    if (basketId){
-      this.basketService.getBasket(basketId).subscribe(() => {
-        console.log('initialized basket');
-      }, error => {
-        console.log(error);
+    if (basketId) {
+      this.basketService.getBasket(basketId).subscribe({
+        next: () => {
+          console.log('initialized basket');
+        },
+        error: (error) => {
+          console.log(error);
+        }
       });
     }
   }

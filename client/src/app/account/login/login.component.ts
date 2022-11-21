@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
@@ -14,27 +14,28 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
 
-  constructor(private accountService: AccountService, private router: Router, private snackBar: MatSnackBar, private activatedRoute: ActivatedRoute) {}
+  constructor(private accountService: AccountService, private router: Router, private snackBar: MatSnackBar, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/book'
     this.createLoginForm();
   }
 
-  createLoginForm(){
+  createLoginForm() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
   }
 
-  onSubmit(){
-    this.accountService.login(this.loginForm.value).subscribe(() => {
-      this.router.navigateByUrl(this.returnUrl);
-    }, error => {
-      this.snackBar.open(error.errors.message, 'Close', {
-        duration: 5000
-      });
+  onSubmit() {
+    this.accountService.login(this.loginForm.value).subscribe({
+      next: () => this.router.navigateByUrl(this.returnUrl),
+      error: (error) => {
+        this.snackBar.open(error.errors.message, 'Close', {
+          duration: 5000
+        });
+      }
     })
   }
 }

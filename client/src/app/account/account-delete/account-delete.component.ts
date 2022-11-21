@@ -14,18 +14,21 @@ export class AccountDeleteComponent implements OnInit {
   currentUser$: Observable<IUser>
   constructor(private accountService: AccountService, private snackBar: MatSnackBar, private router: Router) {
     this.currentUser$ = this.accountService.currentUser$;
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  deleteAccount(email: string){
-    this.accountService.deleteUser(email).subscribe(() => {
-      this.snackBar.open('Account deleted', 'Close', {
-        duration: 5000
-      });
-    }, error => {
-      console.log(error)
+  deleteAccount(email: string) {
+    this.accountService.deleteUser(email).subscribe({
+      next: () => {
+        this.snackBar.open('Account deleted', 'Close', {
+          duration: 5000
+        });
+      },
+      error: (error) => {
+        console.log(error)
+      }
     });
   }
 

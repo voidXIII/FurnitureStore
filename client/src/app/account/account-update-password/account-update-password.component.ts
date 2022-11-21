@@ -42,10 +42,10 @@ export class AccountUpdatePasswordComponent implements OnInit {
   }
 
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.passwordForm.value);
-    this.accountService.updatePassword(this.passwordForm.value).subscribe(
-      () => {
+    this.accountService.updatePassword(this.passwordForm.value).subscribe({
+      next: () => {
         this.matSnackBar.open(
           'Your password was changed successfully.',
           'Close',
@@ -55,9 +55,9 @@ export class AccountUpdatePasswordComponent implements OnInit {
         );
         this.dialog.closeAll();
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
       }
-    );
+    });
   }
 }

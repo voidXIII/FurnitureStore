@@ -44,11 +44,6 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            if (env.IsDevelopment())
-            {
-                app.UseSwaggerDocumentation();
-            }
-            app.UseMiddleware<TransactionMiddleware>();
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseHttpsRedirection();
 
@@ -59,6 +54,8 @@ namespace API
             
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSwaggerDocumentation();
 
             app.UseEndpoints(endpoints =>
             {

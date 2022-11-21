@@ -12,6 +12,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
 </head>
 <body class="mat-typography">
+  <script>
+    window.onscroll = function() {
+          scrollFunction()
+      };
+  
+      function scrollFunction() {
+        if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+            document.getElementById("navbar").style.padding = "15px";
+            document.getElementById("navbar").style.opacity = "0.95";
+            document.getElementById("navbar").style.transition = "0.5s";
+            document.getElementById("logo").style.maxHeight = "40px";
+        } else {
+            document.getElementById("navbar").style.padding = "1rem";
+            document.getElementById("logo").style.maxHeight = "70px";
+            document.getElementById("navbar").style.transition = "0.5s";
+            document.getElementById("navbar").style.opacity = "1";
+        }
+    }
+  </script>
   <app-root></app-root>
   <script type="text/javascript" src="https://js.stripe.com/v3"></script>
 </body>

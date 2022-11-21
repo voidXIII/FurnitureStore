@@ -11,11 +11,15 @@ namespace Application.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
+        private readonly IRepository<Function> _functionRepo;
+        private readonly IRepository<Topology> _topologyRepo;
+        private readonly IRepository<Product> _productRepo;
+        public ProductService(IMapper mapper, IRepository<Function> functionRepo, IRepository<Topology> topologyRepo, IRepository<Product> productRepo)
         {
-            _unitOfWork = unitOfWork;
+            _productRepo = productRepo;
+            _topologyRepo = topologyRepo;
+            _functionRepo = functionRepo;
             _mapper = mapper;
         }
         public async Task<ProductToReturnDto> CreateProductAsync(ProductToCreateDto productToCreate)
@@ -33,29 +37,29 @@ namespace Application.Services
             };
 
             var productToUpload = _mapper.Map(productToCreate, product);
-            _unitOfWork.Repository<Product>().Add(productToUpload);
-            await _unitOfWork.Repository<Product>().SaveChangesAsync();
+            _productRepo.Add(productToUpload);
+            await _productRepo.SaveChangesAsync();
             return _mapper.Map<ProductToReturnDto>(productToUpload);
         }
 
         public async Task DeleteProductAsync(int id)
         {
-            var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
+            var product = await _productRepo.GetByIdAsync(id);
 
             if(product == null)
             {
                 throw EntityNotFoundException.OfType<Product>(id);
             }
-            await _unitOfWork.Repository<Product>().DeleteAsync(id);
-            await _unitOfWork.Repository<Product>().SaveChangesAsync();
+            await _productRepo.DeleteAsync(id);
+            await _productRepo.SaveChangesAsync();
         }
 
         public async Task<Pagination<ProductToReturnDto>> GetProductsAsync(ParamsSpecification paramsSpec)
         {
             var spec = new ProductsWithTopologiesAndFunctionsSpecification(paramsSpec);
             var countSpec = new ProductWithFiltersForCountSpecification(paramsSpec);
-            var products = await _unitOfWork.Repository<Product>().ListAsync(spec);
-            var totalCount = await _unitOfWork.Repository<Product>().CountAsync(countSpec);
+            var products = await _productRepo.ListAsync(spec);
+            var totalCount = await _productRepo.CountAsync(countSpec);
             var dataToReturn = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
             return new Pagination<ProductToReturnDto>(paramsSpec.PageIndex, paramsSpec.PageSize, totalCount, dataToReturn);
         }
@@ -63,7 +67,7 @@ namespace Application.Services
         public async Task<ProductToReturnDto> GetProductWithSpecAsync(int id)
         {
             var spec = new ProductsWithTopologiesAndFunctionsSpecification(id);
-            var product = await _unitOfWork.Repository<Product>().GetEntityWithSpec(spec);
+            var product = await _productRepo.GetEntityWithSpec(spec);
             if(product == null)
             {
                 throw EntityNotFoundException.OfType<Product>(id);
@@ -73,24 +77,24 @@ namespace Application.Services
 
         public async Task UpdateProductAsync(int id, ProductToUpdateDto productToUpdate)
         {
-            var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
+            var product = await _productRepo.GetByIdAsync(id);
             if(product == null)
             {
                 throw EntityNotFoundException.OfType<Product>(id);
             }
             var dataToUpdate = _mapper.Map(productToUpdate, product);
-            _unitOfWork.Repository<Product>().Update(dataToUpdate);
-            await _unitOfWork.Repository<Product>().SaveChangesAsync();
+            _productRepo.Update(dataToUpdate);
+            await _productRepo.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyList<Function>> GetAllFunctions()
         {
-            return await _unitOfWork.Repository<Function>().ListAllAsync();
+            return await _functionRepo.ListAllAsync();        
         }
 
         public async Task<IReadOnlyList<Topology>> GetAllTopologies()
         {
-            return await _unitOfWork.Repository<Topology>().ListAllAsync();
+            return await _topologyRepo.ListAllAsync();
         }
     }
 }

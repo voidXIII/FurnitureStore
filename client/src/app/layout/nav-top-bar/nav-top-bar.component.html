@@ -1,5 +1,18 @@
-<div class="navigation-bar">
-<img src="/assets/logo3.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
+<script>
+  window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            document.getElementById("navbar").style.opacity = "0.5";
+        } else {
+            document.getElementById("navbar").style.opacity = "1";
+        }
+    }
+</script>
+<div class="navigation-bar" id="navbar">
+<img src="/assets/logo3.png" style="max-height: 70px;" alt="logo" class="logo" id="logo" routerLink="/">
 
     <nav class="menu" style="font-size: larger;">
       <a class="menu-element" [routerLink]="['/']" routerLinkActive="active"

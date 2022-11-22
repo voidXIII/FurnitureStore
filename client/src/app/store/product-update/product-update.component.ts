@@ -15,32 +15,37 @@ export class ProductUpdateComponent implements OnInit {
   product: IProduct;
   productUpdateForm: FormGroup;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IProduct, private storeService: StoreService, private snackBar: MatSnackBar, private dialog: MatDialog, 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: IProduct, private storeService: StoreService, private snackBar: MatSnackBar, private dialog: MatDialog,
     private router: Router) {
-   }
-    
+  }
+
   ngOnInit(): void {
     this.loadRoom();
     this.updateRoomForm();
   }
+  get model() { return this.productUpdateForm.get('model'); }
   get productName() { return this.productUpdateForm.get('productName'); }
   get price() { return this.productUpdateForm.get('price'); }
   get dimensions() { return this.productUpdateForm.get('dimensions'); }
   get description() { return this.productUpdateForm.get('description'); }
 
-  
-  loadRoom(){
-    this.storeService.getProduct(this.data.id).subscribe(response => {
-      console.log(response);
-      this.product = response;
-      this.updateRoomForm();
-    }, error => {
-      console.log(error);
+
+  loadRoom() {
+    this.storeService.getProduct(this.data.id).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.product = response;
+        this.updateRoomForm();
+      },
+      error: (error) => {
+        console.log(error);
+      }
     })
   }
 
-  updateRoomForm(){
+  updateRoomForm() {
     this.productUpdateForm = new FormGroup({
+      model: new FormControl(this.product?.model, [Validators.required]),
       productName: new FormControl(this.product?.productName, [Validators.required]),
       price: new FormControl(this.product?.price, [Validators.required]),
       dimensions: new FormControl(this.product?.dimensions, [Validators.required]),
@@ -51,20 +56,26 @@ export class ProductUpdateComponent implements OnInit {
 
 
 
-  onSubmit(id: number){
+  onSubmit(id: number) {
     const formData = new FormData();
+    formData.append('model', this.model?.value);
     formData.append('productName', this.productName?.value);
     formData.append('price', this.price?.value);
     formData.append('dimensions', this.dimensions?.value);
     formData.append('description', this.description?.value);
-  
-    this.storeService.updateProduct(id, formData).subscribe(response => {
-      this.snackBar.open('Product was successfully updated', 'Close', {
-        duration: 5000
-      });
-      this.dialog.closeAll();
-    }, error => {
-      console.log(error);
+
+    this.storeService.updateProduct(id, formData).subscribe({
+      next: (response) => {
+        this.snackBar.open('Product was successfully updated', 'Close', {
+          duration: 5000
+        });
+        this.dialog.closeAll();
+      },
+      error: (error) => {
+        this.snackBar.open(error.errors, 'Close', {
+          duration: 5000
+        });
+      }
     });
   }
 

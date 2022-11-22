@@ -1,6 +1,7 @@
 <div class="form">
     <h2>Update {{data.productName}}</h2>
     <form [formGroup]="productUpdateForm" (ngSubmit)="onSubmit(product.id)" class="form">
+        <app-text-input formControlName="model" [label]="'Model'"></app-text-input>
         <app-text-input formControlName="productName" [label]="'Product Name'"></app-text-input>
         <app-text-input formControlName="price" [label]="'Price'"></app-text-input>
         <app-text-input formControlName="dimensions" [label]="'Dimensions'"></app-text-input>

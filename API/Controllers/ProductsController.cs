@@ -2,6 +2,8 @@ using API.Services;
 using Application.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using Application.Dtos;
+using Microsoft.AspNetCore.Authorization;
+using Domain.Entities.Identity;
 
 namespace API.Controllers
 {
@@ -27,6 +29,7 @@ namespace API.Controllers
             return Ok(await _productService.GetProductWithSpecAsync(id));
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpPost]
         public async Task<ActionResult> CreateProduct([FromBody] ProductToCreateDto ProductToCreate)
         {
@@ -34,6 +37,7 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetProduct), new { id = result.Id }, result);
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpDelete]
         public async Task<ActionResult> DeleteProduct(int id)
         {
@@ -41,6 +45,7 @@ namespace API.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateProduct(int id, [FromForm] ProductToUpdateDto ProductToUpdate)
         {

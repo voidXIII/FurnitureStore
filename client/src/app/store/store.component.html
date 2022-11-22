@@ -47,9 +47,7 @@
                     <app-product [product]="product"></app-product>
                 </div>
             </div>
-            <div class="search" *ngIf="products">
-            <button mat-raised-button (click)="addProduct()"><mat-icon color="primary">add_box</mat-icon></button>
-            </div>
+
             <div class="paginator" *ngIf="products">
                 <mat-paginator
                     [pageSize]="storeParams.pageSize"
@@ -60,7 +58,11 @@
                     hidePageSize
                   ></mat-paginator>
             </div>
-            
+            <div class="add-button" *ngIf="products">
+                <ng-container *ngIf="isAdmin()">
+                        <button mat-raised-button (click)="addProduct()" style="color: #616161;"><mat-icon color="primary">add_box</mat-icon> Add a new product</button>
+                </ng-container>
+            </div>
         </section>
     </div>
 </div>

@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Application.Dtos.User;
 using Application.Errors;
 using Application.Interfaces;
@@ -41,11 +42,12 @@ namespace Application.Services
         public async Task<UserDto> GetCurrentUser(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
+            var role = _userManager.GetClaimsAsync(user).Result[0].Value;
 
             return new UserDto
             {
                 Email = user.Email,
-                Token = _tokenService.CreateToken(user),
+                Token = _tokenService.CreateToken(user, role),
                 DisplayName = user.DisplayName
             };
         }
@@ -59,6 +61,7 @@ namespace Application.Services
             }
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDTO.Password, false);
+            var role = _userManager.GetClaimsAsync(user).Result[0].Value;
 
             if (!result.Succeeded)
             {
@@ -68,7 +71,7 @@ namespace Application.Services
             return new UserDto
             {
                 Email = user.Email,
-                Token = _tokenService.CreateToken(user),
+                Token = _tokenService.CreateToken(user, role),
                 DisplayName = user.DisplayName
             };
         }
@@ -89,6 +92,11 @@ namespace Application.Services
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
+            if (result.Succeeded)
+            {
+                _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Registered User")).GetAwaiter().GetResult();
+            }
+
             if (!result.Succeeded) 
             {
                 throw new UnauthorizedAccessException("Error on registration process.");
@@ -97,7 +105,7 @@ namespace Application.Services
             return new UserDto
             {
                 DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user),
+                Token = _tokenService.CreateToken(user, "Registered User"),
                 Email = user.Email
             };
         }
@@ -122,7 +130,7 @@ namespace Application.Services
             {
                 Email = currentUser.Email,
                 DisplayName = currentUser.DisplayName,
-                Token = _tokenService.CreateToken(currentUser)
+                Token = _tokenService.CreateToken(currentUser, "Registered User")
             };
         }
 
@@ -146,7 +154,7 @@ namespace Application.Services
             {
                 Email = user.Email,
                 DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user, "Registered User")
             };
         }
 

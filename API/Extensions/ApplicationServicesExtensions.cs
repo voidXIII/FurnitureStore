@@ -19,7 +19,6 @@ namespace API.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IStripeService, StripeService>();
-            services.AddScoped<TransactionMiddleware>();
             services.AddScoped<IUploadService, UploadService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IBasketRepository, BasketRepository>();

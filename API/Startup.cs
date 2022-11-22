@@ -56,6 +56,8 @@ namespace API
             app.UseAuthorization();
 
             app.UseSwaggerDocumentation();
+            
+            app.UseMiddleware<TransactionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

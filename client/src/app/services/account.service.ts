@@ -77,4 +77,10 @@ export class AccountService {
       values
     );
   }
+
+  isAdmin(): boolean {
+    let token = localStorage.getItem('token');
+    let decodedJWT = JSON.parse(window.atob(token!.split('.')[1]));
+    return decodedJWT.role == 'Admin' ? true : false;
+  }
 }

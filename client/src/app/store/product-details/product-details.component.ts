@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/product';
+import { AccountService } from 'src/app/services/account.service';
 import { BasketService } from 'src/app/services/basket.service';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductUpdateComponent } from '../product-update/product-update.component';
@@ -18,7 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   quantity = 1;
 
   constructor(private storeService: StoreService, private activateRoute: ActivatedRoute, private basketService: BasketService, private dialog: MatDialog, 
-    private router: Router, private snackBar: MatSnackBar) { }
+    private router: Router, private snackBar: MatSnackBar, private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.activateRoute.paramMap.subscribe(response => {
@@ -71,5 +72,9 @@ export class ProductDetailsComponent implements OnInit {
     }, error => {
       console.log(error)
     });
+  }
+
+  isAdmin() {
+    return this.accountService.isAdmin();
   }
 }

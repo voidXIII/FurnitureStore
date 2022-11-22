@@ -1,26 +1,32 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Infrastructure.Data;
 
 namespace API.Middleware
 {
-    public class TransactionMiddleware : IMiddleware
+    public class TransactionMiddleware
     {
-        private readonly FurnitureStoreContext _context;
-        public TransactionMiddleware(FurnitureStoreContext context)
+        private readonly RequestDelegate _next;
+        public TransactionMiddleware(RequestDelegate next)
         {
-            _context = context;
+            _next = next;
         }
 
 
-        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+        public async Task InvokeAsync(HttpContext httpContext, FurnitureStoreContext storeContext)
         {
-            await _context.Database.BeginTransactionAsync();
-            await next(context);
-            await _context.SaveChangesAsync();
-            await _context.Database.CommitTransactionAsync();
+            // For HTTP GET opening transaction is not required
+            if (httpContext.Request.Method == HttpMethod.Get.Method)
+            {
+                await _next(httpContext);
+                return;
+            }
+
+            using (var transaction = await storeContext.Database.BeginTransactionAsync())
+            {
+                await _next(httpContext);
+
+                //Commit transaction if all commands succeed, transaction will auto-rollback when disposed if either commands fails
+                await storeContext.Database.CommitTransactionAsync();
+            }
         }
     }
 }

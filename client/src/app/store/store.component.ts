@@ -7,6 +7,8 @@ import { IProductFunction } from '../models/productFunction';
 import { StoreService } from '../services/store.service';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { IProductTopology } from '../models/productTopology';
+import { AccountService } from 'src/app/services/account.service';
+
 
 @Component({
   selector: 'app-store',
@@ -26,7 +28,7 @@ export class StoreComponent implements OnInit {
     {name: 'Price: High to Low', value: 'priceDesc'}
   ];
 
-  constructor(private storeService: StoreService, private dialog: MatDialog) { }
+  constructor(private storeService: StoreService, private dialog: MatDialog, private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.GetProducts();
@@ -95,4 +97,7 @@ export class StoreComponent implements OnInit {
     this.dialog.open(ProductAddComponent);
   }
 
+  isAdmin() {
+    return this.accountService.isAdmin();
+  }
 }

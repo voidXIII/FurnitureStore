@@ -80,7 +80,10 @@ export class AccountService {
 
   isAdmin(): boolean {
     let token = localStorage.getItem('token');
-    let decodedJWT = JSON.parse(window.atob(token!.split('.')[1]));
-    return decodedJWT.role == 'Admin' ? true : false;
+    if (token !== null){
+      let decodedJWT = JSON.parse(window.atob(token!.split('.')[1]));
+      return decodedJWT.role == 'Admin' ? true : false;
+    }
+    return false;
   }
 }

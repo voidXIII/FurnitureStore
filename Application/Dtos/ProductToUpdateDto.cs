@@ -13,7 +13,8 @@ namespace Application.Dtos
 
         [Required]
         public decimal Price { get; set; }
-
+        
+        [Required]
         public string Dimensions { get; set; }
         
         [Required]
